@@ -1,0 +1,30 @@
+ <div class="modal-header">
+	 <button type="button" data-dismiss="modal" aria-hidden="true" class="close" ng-click="cancel()">×</button>
+	 <h5 id="myModalLabel" class="modal-title">编辑</h5>
+</div>
+<div class="modal-body clearFloat padding-top-bottom-50">
+	<div class="float_left mar-left-50">
+		<label>表:</label>
+		<input class="ant-input" type="text" disabled value="借款信息表" />
+	</div>
+	<div class="col-12">
+		<label class="float_left col-2 text_right mar-top-5">字段:</label>
+         <div dropdown="dropdown" class="btn-group ">
+	        <div class="ant-select-selection ant-select-selection--multiple col-6 inline_block ant-input "  dropdown-toggle="" >
+	        	<ul class="clearFloat ulChildli ">
+					<li><a >Action</a><i class="fa fa-trash-o pointer"></i></li>
+	        	</ul>
+	        </div>
+			<ul role="menu" class="dropdown-menu animated bounceIn">
+               <li><a >Action</a></li>
+               <li><a >Another action</a></li>
+               <li><a >Something else here</a></li>
+               <li><a >Separated link</a></li>
+            </ul>           
+         </div>
+	</div>
+</div>
+<div class="modal-footer">
+	 <button ng-click="cancel()" class="btn btn-warning">返回</button>
+	 <button ng-click="ok()" class="btn btn-primary">提交</button>        
+</div>

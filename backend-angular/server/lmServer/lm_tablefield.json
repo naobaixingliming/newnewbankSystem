@@ -1,0 +1,5 @@
+[
+    {"id": 1, "name": "arc_borrow_rule",   "status": "借款规则管理", "group": "借款类型", "groupName": "启用"},
+ 	{"id": 2, "name": "cl_mayi_req_log",   "status": "借款规则管理", "group": "审核状态,审核结果描述", "groupName": "启用"},
+    {"id": 3, "name": "cl_user_base_info",  "status": "用户详情表", "group": "是否已绑定,芝麻分", "groupName": "启用"}
+  ]

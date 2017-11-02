@@ -1,0 +1,17 @@
+{
+  "aaData": [{
+    "phoneNum": "18868807344",
+    "agentRank": "一级",
+    "profitRate": "20",
+    "addTime": "2015-10-19 ",
+    "updateTime": "2015-12-28",
+    "operatio": "<div ><a href='javascript:;' class='cancelOneGreadeBtn'>取消一级代理</a></div>"
+  },{
+    "phoneNum": "18256863621",
+    "agentRank": "一级",
+    "profitRate": "20",
+    "addTime": "2015-11-26 ",
+    "updateTime": "2015-12-29",
+    "operatio": "<div ><a href='javascript:;' class='cancelOneGreadeBtn'>取消一级代理</a></div>"
+  }]
+}

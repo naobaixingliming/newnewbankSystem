@@ -1,0 +1,460 @@
+[
+  {
+    "text": "dashboard",
+    "sref": "#",
+    "icon": "icon-speedometer",
+    "alert": "3",
+    "label": "label label-info",
+    "submenu": [
+      {
+        "text": "版本 v1",
+        "sref": "app.dashboard"
+      },
+      {
+        "text": "版本 v2",
+        "sref": "app.dashboard_v2"
+      },
+      {
+        "text": "版本 v3",
+        "sref": "app.dashboard_v3"
+      }
+    ],
+    "translate": "版本"
+  },
+  { 
+    "text": "用户管理",
+    "sref": "#",
+    "icon": "icon-user",
+    "submenu": [
+      {
+        "text": "用户信息",
+        "sref": "app.userInfo"
+      },
+      {
+        "text": "用户认证信息",
+        "sref": "app.userInfo-authentice"
+      },
+      {
+        "text": "用户反馈列表",
+        "sref": "app.user-feedbackList"
+      }
+    ],
+    "translate": "用户管理"
+  },
+  { 
+    "text": "代理商管理",
+    "sref": "#",
+    "icon": "icon-wallet",
+    "submenu": [
+      {
+        "text": "用户代理等级",
+        "sref": "app.agent-rank"
+      },
+      {
+        "text": "代理商列表",
+        "sref": "app.agent-list"
+      },
+      {
+        "text": "奖励资金账户",
+        "sref": "app.agent-fundAcount",
+        "alert": "new",
+        "label": "label label-purple"
+      },
+      {
+        "text": "奖励获得记录",
+        "sref": "app.agent-awardsGetRecords"
+      },
+      {
+        "text": "奖励打款记录",
+        "sref": "app.agent-bonusRecord"
+      }
+    ],
+    "translate": "代理商管理"
+  },
+  { 
+    "text": "规则引擎",
+    "sref": "#",
+    "icon": "icon-social-dribbble",
+    "submenu": [
+      {
+        "text": "表字段维护",
+        "sref": "app.maintain-tableField"
+      },
+      {
+        "text": "规则配置",
+        "sref": "app.sortable"
+      },
+      {
+        "text": "规则类型绑定",
+        "sref": "app.panels"
+      }
+    ],
+    "translate": "规则引擎"
+  },
+  { 
+    "text": "风控管理",
+    "sref": "#",
+    "icon": "icon-umbrella",
+    "submenu": [
+      {
+        "text": "待机审订单",
+        "sref": "app.portlets"
+      },
+      {
+        "text": "机审通过订单",
+        "sref": "app.grid"
+      },
+      {
+        "text": "机审拒绝订单",
+        "sref": "app.grid-masonry"
+      },
+      {
+        "text": "机审请求记录",
+        "sref": "app.typo"
+      },
+      {
+        "text": "人工复审",
+       "sref": "app.icons-font",
+        "alert": "+400"
+      }
+    ],
+    "translate": "风控管理"
+  },
+  { 
+    "text": "借款管理",
+    "sref": "#",
+    "icon": "icon-credit-card",
+    "submenu": [
+      {
+        "text": "借款订单",
+        "sref": "app.icons-weather",
+        "alert": "+100"
+      },
+      {
+        "text": "借款进度",
+        "sref": "app.icons-weather",
+        "alert": "+100"
+      },
+      {
+        "text": "放款订单",
+        "sref": "app.colors"
+      }      
+    ],
+    "translate": "借款管理"
+  },
+  { 
+    "text": "支付管理",
+    "sref": "#",
+    "icon": "icon-cup",
+    "submenu": [
+      {
+        "text": "支付记录",
+        "sref": "app.localization"
+      },
+      {
+        "text": "支付审核",
+        "sref": "app.infinite-scroll"
+      },
+      {
+        "text": "支付对账记录",
+        "sref": "app.timeline"
+      }      
+    ],
+    "translate": "支付管理",
+    "alert": "new"
+  },
+  { 
+    "text": "还款管理",
+    "sref": "#",
+    "icon": "icon-note",
+    "submenu": [
+      {
+        "text": "还款计划",
+        "sref": "app.form-standard"
+      },
+      {
+        "text": "还款记录",
+        "sref": "app.form-extended"
+      },
+      {
+        "text": "代扣支付记录",
+        "sref": "app.form-validation"
+      },
+      {
+        "text": "银行卡还款记录",
+        "sref": "app.form-parsley"
+      },
+      {
+        "text": "主动还款记录",
+        "sref": "app.form-wizard"
+      }    
+    ],
+    "translate": "还款管理"
+  },
+  { 
+    "text": "贷后管理",
+    "sref": "#",
+    "icon": "icon-grid",
+    "submenu": [
+      {
+        "text": "已还款订单",
+        "sref": "app.form-upload"
+      },
+      {
+        "text": "已逾期订单",
+        "sref": "app.form-xeditable"
+      },
+      {
+        "text": "已坏账订单",
+        "sref": "app.form-imagecrop"
+      }
+    ],
+    "translate": "贷后管理"
+  },
+  { 
+    "text": "催收人员管理",
+    "sref": "#",
+    "icon": "icon-bubbles",
+    "submenu": [
+      {
+        "text": "催收员",
+        "sref": "app.form-uiselect"
+      }
+    ],
+    "translate": "催收人员管理"
+  },
+  { 
+    "text": "催收订单管理",
+    "sref": "#",
+    "icon": "icon-calculator",
+    "submenu": [
+      {
+        "text": "催收总订单",
+        "sref": "app.chart-flot"
+      },
+      {
+        "text": "待催收订单",
+        "sref": "app.chart-radial"
+      },
+      {
+        "text": "催收反馈",
+        "sref": "app.chart-js"
+      }
+    ],
+    "translate": "催收订单管理"
+  },
+  { 
+    "text": "我的催收订单",
+    "sref": "#",
+    "icon": "icon-feed",
+    "submenu": [
+      {
+        "text": "我的订单",
+        "sref": "app.chart-rickshaw"
+      },
+      {
+        "text": "待催收订单",
+        "sref": "app.chart-morris"
+      },
+      {
+        "text": "催收中订单",
+        "sref": "app.chart-chartist"
+      },
+      {
+        "text": "承诺还款订单",
+        "sref": "app.table-standard"
+      },
+      {
+        "text": "催收成功订单",
+        "sref": "app.table-extended"
+      },
+      {
+        "text": "催收反馈",
+        "sref": "app.table-datatable"
+      }
+    ],
+    "translate": "我的催收订单"
+  },
+  { 
+    "text": "催收预警",
+    "sref": "#",
+    "icon": "icon-energy",
+    "submenu": [
+      {
+        "text": "已逾期未入催",
+        "sref": "app.table-ngtable"
+      },
+      {
+        "text": "未还款已出催",
+        "sref": "app.table-nggrid"
+      },
+      {
+        "text": "未分配催收员",
+        "sref": "app.table-uigrid"
+      }
+    ],
+    "translate": "催收预警"
+  },
+  { 
+    "text": "催收统计",
+    "sref": "#",
+    "icon": "icon-film",
+    "submenu": [
+      {
+        "text": "催回率统计",
+        "sref": "app.table-xeditable"
+      },
+      {
+        "text": "催收订单统计",
+        "sref": "app.maps-google"
+      },
+      {
+        "text": "催收员每日统计",
+        "sref": "app.maps-vector"
+      }
+    ],
+    "translate": "催收统计"
+  },
+  { 
+    "text": "征信数据接口",
+    "sref": "#",
+    "icon": "icon-shuffle",
+    "submenu": [
+      {
+        "text": "第三方征信接口",
+        "sref": "page.login"
+      },
+      {
+        "text": "场景与接口关系维护",
+        "sref": "page.register"
+      }
+    ],
+    "translate": "征信数据接口"
+  },
+  { 
+    "text": "风控数据",
+    "sref": "#",
+    "icon": "icon-bag",
+    "submenu": [
+      {
+        "text": "每日通过率",
+        "sref": "page.recover"
+      },
+      {
+        "text": "平台数据日报",
+        "sref": "page.lock"
+      }
+    ],
+    "translate": "风控数据"
+  },
+ { 
+    "text": "运营数据",
+    "sref": "#",
+    "icon": "icon-docs",
+    "submenu": [
+      {
+        "text": "每日还款分析",
+        "sref": "app.template"
+      },
+      {
+        "text": "每月还款分析",
+        "sref": "page.404"
+      },
+      {
+        "text": "每月逾期分析",
+        "sref": "app.timeline"
+      }
+    ],
+    "translate": "运营数据"
+  },
+  { 
+    "text": "统计管理",
+    "sref": "#",
+    "icon": "icon-note",
+    "submenu": [
+      {
+        "text": "每日未还本金",
+        "sref": "app.timeline"
+      },
+      {
+        "text": "每日放款收支数据",
+        "sref": "app.calendar"
+      }      
+    ],
+    "translate": "统计管理"
+  },
+  { 
+    "text": "系统管理",
+    "sref": "#",
+    "icon": "icon-settings",
+    "submenu": [
+      {
+        "text": "访问码管理",
+        "sref": "app.invoice"
+      },
+      {
+        "text": "用户管理",
+        "sref": "app.search"
+      },
+      {
+        "text": "角色管理",
+        "sref": "app.todo"
+      },
+      {
+        "text": "菜单管理",
+        "sref": "app.profile"
+      },
+      {
+        "text": "字典管理",
+        "sref": "app.code-editor"
+      },
+      {
+        "text": "系统参数设置",
+        "sref": "app.multilevel.level1" 
+      },
+      {
+        "text": "Druid监控",
+        "sref": "app.multilevel.level1.item"
+      },
+      {
+        "text": "访问码管理",
+        "sref": "app.multilevel.level1.level2"
+      }
+    ],
+    "translate": "系统管理"
+  },
+  { 
+    "text": "定时任务",
+    "sref": "#",
+    "icon": "icon-clock",
+    "submenu": [
+      {
+        "text": "任务列表",
+        "sref": "app.multilevel.level1.level2.level3"
+      },
+      {
+        "text": "执行记录",
+        "sref": "app.multilevel.level1.level2.level3.item"
+      }      
+    ],
+    "translate": "定时任务"
+  },
+  { 
+    "text": "渠道管理",
+    "sref": "#",
+    "icon": "icon-doc",
+    "submenu": [
+      {
+        "text": "渠道管理",
+        "sref": "app.access-code"
+      }
+    ],
+    "translate": "渠道管理"
+  },
+  {
+    "text": "Documentation",
+    "sref": "app.documentation",
+    "icon": "icon-graduation",
+    "translate": "说明文档"
+  }
+]
