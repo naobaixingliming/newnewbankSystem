@@ -434,6 +434,23 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
   };
   ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
 
+
+  $scope.addUser=function(size){
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContentId',
+        controller: ModalInstanceCtrl,
+        size: size
+      });
+      var state = $('#modal-state');
+      modalInstance.result.then(function () {
+        state.text('Modal dismissed with OK status');
+      }, function () {
+        state.text('Modal dismissed with Cancel status');
+      });
+  };
+
+ 
+
 }]);
 
 

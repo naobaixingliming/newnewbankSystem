@@ -118,11 +118,17 @@ i{
 	padding-top:50px;
 	padding-bottom:50px  
 }
+.padding-left-30{
+	padding-left: 30px!important;
+}
 .mar-top-5{
 	margin-top:5px 
 }
 .mar-right-10{
 	margin-right:10px 
+}
+.mar-left-10{
+	margin-left:10px; 
 }
 .mar-left-50{
 	margin-left:50px 
@@ -146,7 +152,8 @@ table.dataTable tr td:first-child{
 table.dataTable tr th:first-child{
 	padding-left:30px; 
 }
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+/*.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th,*/
+ .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     padding: 12px !important;
 }
 
@@ -195,7 +202,8 @@ ul li{
 }
 ul.query{
 	padding-top:20px;
-	margin-bottom:20px  
+	margin-bottom:20px;  
+	padding-left:30px;
 }
 ul.query li{
 	margin-right:20px;
@@ -240,4 +248,7 @@ ul.query li{
 }
 .ulChildli .fa-trash-o:hover{
 	color:#999;
+}
+.selectOP option{
+	padding:10px;	
 }
