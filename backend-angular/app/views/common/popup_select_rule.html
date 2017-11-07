@@ -1,0 +1,48 @@
+ <div class="modal-header">
+	 <button type="button" data-dismiss="modal" aria-hidden="true" class="close" ng-click="cancel()">×</button>
+	 <h5 id="myModalLabel" class="modal-title">编辑</h5>
+</div>
+
+<div class="modal-body clearFloat padding-top-bottom-50" style="max-height:680px;overflow-y:auto">
+	<div class="row">
+		<div class="col-md-7"><lable class="col-md-4 text_right">借款类型:</lable><div class="col-md-8">现金贷</div></div>
+		<div class="col-md-4"><lable class="col-md-7 text_right">规则适用场景:</lable><div class="col-md-4">贷前</div></div>
+	</div>
+
+	<div class="row mar-top-20">
+		<div class="col-md-7">			
+			<lable class="col-md-4 text_right"><i class="color_f50 font_20">*</i>选择规则:</lable>
+			<div class="col-md-7">
+				<select  ng-init="model=dataLoans[0]" ng-model="model"  ng-options=" data.text for data in dataLoans" class="form-control"></select>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-md-7 text_right">执行优先级:</div>
+			<div class="col-md-5">
+				<input class="form-control" type="text" ng-init="value=0" ng-model="value "  />
+			</div>
+		</div>
+		<div class="col-md-1">
+			<span class="addBorder">+<span>
+		</div>
+	</div>
+
+	<div class="row mar-top-20" ng-repeat="arr in model.arrData">
+		<div class="col-md-7">
+			<lable class="col-md-4 text_right">规则配置:</lable>
+			<div class="col-md-8">{{arr.ruleCogfig}}</div>
+		</div>
+		<div class="col-md-4">
+			<div class="col-md-7 text_right">执行优先级:</div>
+			<div class="col-md-5">
+				<input class="form-control" type="text" value="0" />
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="modal-footer">
+	 <button ng-click="cancel()" class="btn btn-warning">返回</button>
+	 <button ng-click="ok()" class="btn btn-primary">提交</button>        
+</div>

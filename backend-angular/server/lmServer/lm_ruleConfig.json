@@ -1,0 +1,8 @@
+[
+    {"id": 1, "ruleName": "消费金融-手机贷",   "configNum": "2", "pattern": "结果模式",  "state": "启用"},
+ 	{"id": 2, "ruleName": "蚂蚁风控审核",      "configNum": "4", "pattern": "结果模式",  "state": "启用"},
+    {"id": 3, "ruleName": "芝麻分验证",        "configNum": "2", "pattern": "结果模式",  "state": "启用"},
+    {"id": 4, "ruleName": "消费金融-百速贷",   "configNum": "5", "pattern": "评分模式",  "state": "启用"},
+    {"id": 5, "ruleName": "用户认证信息",      "configNum": "10", "pattern": "结果模式", "state": "启用"},
+    {"id": 6, "ruleName": "用户基本信息",      "configNum": "3",  "pattern": "结果模式", "state": "禁用"}
+]

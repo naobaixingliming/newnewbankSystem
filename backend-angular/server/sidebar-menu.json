@@ -82,11 +82,11 @@
       },
       {
         "text": "规则配置",
-        "sref": "app.sortable"
+        "sref": "app.rule-configuration"
       },
       {
         "text": "规则类型绑定",
-        "sref": "app.panels"
+        "sref": "app.rule-typeBind"
       }
     ],
     "translate": "规则引擎"

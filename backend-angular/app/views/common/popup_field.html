@@ -9,25 +9,14 @@
 	</div>
 	<div class="col-12">
 		<label class="float_left col-2 text_right mar-top-5">字段:</label>
-         <div dropdown="dropdown" class="btn-group ">
-	        <div class="ant-select-selection ant-select-selection--multiple col-6 inline_block ant-input "  dropdown-toggle="" >
-	        	<ul class="clearFloat ulChildli ">
-					<li><a >Action</a><i class="fa fa-trash-o pointer"></i></li>
-	        	</ul>
-	        </div>
-			<ul role="menu" class="dropdown-menu animated bounceIn" style="height:200px;overflow:auto">
-               <li><a >Action</a></li>
-               <li><a >Another action</a></li>
-               <li><a >Something else here</a></li>
-               <li><a >Separated link</a></li>
-               <li><a >Separated link</a></li>
-	            <li><a >Separated link</a></li>
-	            <li><a >Separated link</a></li>
-	            <li><a >Separated link</a></li>
-	            <li><a >Separated link</a></li>
-	            <li><a >Separated link</a></li>
-            </ul>           
-         </div>
+
+		 <div class="col-md-6 col-sm-8">
+		    <ui-select multiple="" ng-model="multiple.selectData" theme="bootstrap" ng-disabled="disabled">
+		       <ui-select-match placeholder="请选择">{{$item}}</ui-select-match>
+		       <ui-select-choices repeat="data in fieldDetail | filter:$select.search">{{data}}</ui-select-choices>
+		    </ui-select>
+		 </div>
+		   
 	</div>
 </div>
 <div class="modal-footer">

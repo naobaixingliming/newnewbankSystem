@@ -1393,7 +1393,7 @@ a.bg-danger:hover {
   margin: 42px 0 21px;
   border-bottom: 1px solid #edf1f2;
 }
-ul,
+/*ul,
 ol {
   margin-top: 0;
   margin-bottom: 10.5px;
@@ -1403,7 +1403,7 @@ ol ul,
 ul ol,
 ol ol {
   margin-bottom: 0;
-}
+}*/
 .list-unstyled {
   padding-left: 0;
   list-style: none;

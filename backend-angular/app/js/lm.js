@@ -368,6 +368,11 @@ App.controller('LmBonusRecord', ['$scope', '$timeout', '$rootScope',function($sc
 }]);
 
 
+/**
+ * 
+ * 表字段维护
+ * 
+*/
 App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
    
@@ -382,7 +387,92 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
       url:'server/lmServer/lm_tablefield.json'
   }).then(function(res){
       $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
+  
+  $scope.className=true;
+  $scope.enableState=function(pram){
+    var self = this;
+    ngDialog.openConfirm({      
+        template: 'dialogWithNestedConfirmDialogId',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+      })
+      .then(function(value){        
+         self.className =!pram;                  
+          Notify.alert( 
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
 
+
+  $scope.edit = function (size) {
+    var modalInstance = $modal.open({
+      templateUrl: 'app/views/common/popup_field.html',
+      controller: ModalInstanceCtrl,
+      size: size
+    });
+    var state = $('#modal-state');
+
+    modalInstance.result.then(function () {
+      state.text('Modal dismissed with OK status');
+    }, function () {
+      state.text('Modal dismissed with Cancel status');
+    });
+  };
+  
+  // Please note that $modalInstance represents a modal window (instance) dependency.
+  // It is not the same as the $modal service used above.
+  var ModalInstanceCtrl = function ($scope, $modalInstance) {
+    $scope.fieldDetail = ['借款类型','审核状态','入网时间','身份认证状态','归属地','主键','审核结果描述'];
+    $scope.multiple = {};
+    $scope.multiple.selectData = ['借款类型','审核状态'];
+
+    $scope.ok = function () {
+      $modalInstance.close('closed');
+      console.log('提交成功');
+    };
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  };
+  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
+
+  $scope.addUser=function(size){
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContentId',
+        controller: ModalInstanceCtrl,
+        size: size
+      });
+      var state = $('#modal-state');
+      modalInstance.result.then(function () {
+        state.text('Modal dismissed with OK status');
+      }, function () {
+        state.text('Modal dismissed with Cancel status');
+      });
+  };
+}]);
+
+
+/**
+ * 
+ * 规则配置
+ * 
+*/
+App.controller('LmRuleConfigController', ['$scope', '$modal','$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $http,ngDialog, editableOptions, editableThemes,Notify) {
+   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_ruleConfig.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
   },function(error){
       console.log('error');
   })
@@ -421,36 +511,127 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
     });
   };
 
-  // Please note that $modalInstance represents a modal window (instance) dependency.
-  // It is not the same as the $modal service used above.
-  var ModalInstanceCtrl = function ($scope, $modalInstance) {
+  var ModalInstanceCtrl = function ($scope, $modalInstance) {  
     $scope.ok = function () {
       $modalInstance.close('closed');
-      console.log('提交成功');
+      console.log('提交成功11');
     };
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
   };
   ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
-
-
-  $scope.addUser=function(size){
-      var modalInstance = $modal.open({
-        templateUrl: 'myModalContentId',
-        controller: ModalInstanceCtrl,
-        size: size
-      });
-      var state = $('#modal-state');
-      modalInstance.result.then(function () {
-        state.text('Modal dismissed with OK status');
-      }, function () {
-        state.text('Modal dismissed with Cancel status');
-      });
-  };
-
- 
-
 }]);
 
 
+/**
+ * 
+ * 规则类型绑定
+ * 
+*/
+App.controller('LmRuleTypeBindController', ['$scope', '$modal','$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $http,ngDialog, editableOptions, editableThemes,Notify) {
+   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_ruletypeBind.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  });
+  //确认-- 弹框
+  $scope.delate=function(){
+    ngDialog.openConfirm({      
+        template: 'dialogWithNestedConfirmDialogId',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+      })
+      .then(function(value){                        
+          Notify.alert( 
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
+  
+  //编辑规则树-- 弹框 
+  $scope.editList = function (size) {
+    var modalInstance = $modal.open({
+      templateUrl: 'app/views/common/popup_select_rule.html',
+      controller: ModalInstanceCtrl,
+      size: size
+    });
+    var state = $('#modal-state');
+    modalInstance.result.then(function () {
+      state.text('Modal dismissed with OK status');
+    }, function () {
+      state.text('Modal dismissed with Cancel status');
+    });
+  };
+
+//查看规则树-- 弹框 
+  $scope.lookList = function (size) {
+    var modalInstance = $modal.open({
+      templateUrl: 'app/views/common/popup_lookRule.html',
+      controller: ModalInstanceCtrl,
+      size: size
+    });
+    var state = $('#modal-state');
+    modalInstance.result.then(function () {
+      state.text('Modal dismissed with OK status');
+    }, function () {
+      state.text('Modal dismissed with Cancel status');
+    });
+  };
+
+  var ModalInstanceCtrl = function ($scope, $modalInstance) { 
+    $scope.dataLoans = [
+      {
+        "text":"消费金融-手机贷",
+        "arrData":[
+            {id:'1',"ruleCogfig":"运营商信息--基础信息/入网时间>=2017-10-01"},
+            {id:'2',"ruleCogfig":"运营商信息--基础信息/归属地<=2017-01-01"}]
+      },{
+        "text":"消费金融-百速贷",
+        "arrData":[
+            {id:'1',"ruleCogfig":"借款信息表/借款金额>1000"},
+            {id:'2',"ruleCogfig":"运营商信息--基础信息/入网时间>=2017-01-02"},
+            {id:'3',"ruleCogfig":"运营商信息--基础信息/归属地=杭州"} 
+        ]},{
+        "text":"蚂蚁风控审核",
+        "arrData":[
+            {id:'1',"ruleCogfig":"风控数据-蚂蚁请求结果/审核状态=4"},
+            {id:'2',"ruleCogfig":"风控数据-蚂蚁请求结果/审核状态=2"},
+            {id:'3',"ruleCogfig":"风控数据-蚂蚁请求结果/审核状态=3"} 
+        ]},{
+        "text":"芝麻分验证",
+        "arrData":[
+            {id:'1',"ruleCogfig":"芝麻信用/是否已绑定!=20"},
+            {id:'2',"ruleCogfig":"芝麻信用/是否已绑定=20"},
+            {id:'3',"ruleCogfig":"芝麻信用/芝麻分>500"}, 
+            {id:'4',"ruleCogfig":"芝麻信用/芝麻分<=500"},
+        ]},{
+        "text":"用户认证信息",
+        "arrData":[
+            {id:'1',"ruleCogfig":"用户认证状态/身份认证状态=30"},
+            {id:'2',"ruleCogfig":"用户认证状态/紧急联系人状态=30"},
+            {id:'3',"ruleCogfig":"用户认证状态/银行卡状态=30"}, 
+            {id:'4',"ruleCogfig":"用户认证状态/手机运营商认证状态=30"},
+            {id:'5',"ruleCogfig":"用户认证状态/芝麻授信状态=30"}
+        ]},
+    ];
+   
+    $scope.ok = function () {
+      $modalInstance.close('closed');
+      console.log('提交成功12');
+    };
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  };
+  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
+}]);

@@ -644,11 +644,22 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/table-field',
         title: '表字段维护',
         templateUrl: helper.basepath('_table-field.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+    .state('app.rule-configuration', {
+        url: '/rule-configuration',
+        title: '规则配置',
+        templateUrl: helper.basepath('_ruleConfiguration.html'),
         resolve: helper.resolveFor('xeditable','ngDialog')
     })
-
+    .state('app.rule-typeBind', {
+        url: '/rule-typeBind',
+        title: '规则类型绑定',
+        templateUrl: helper.basepath('_ruleTypeBinding.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog')
+    })
     
-    // 
+    // rule-configuration app.rule-typeBind
     // CUSTOM RESOLVES
     //   Add your own resolves properties
     //   following this object extend

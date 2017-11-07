@@ -1,5 +1,6 @@
 ul{
-	padding: 0
+	padding: 0;
+	margin: 0;
 }
 i{
 	font-style: normal;
@@ -30,6 +31,9 @@ i{
 }
 .color_87d068{
 	color:#87d068;
+}
+.color_f50{
+	color: #f50
 }
 .font_12 {
 	font-size: 12px;
@@ -124,6 +128,9 @@ i{
 .mar-top-5{
 	margin-top:5px 
 }
+.mar-top-20{
+	margin-top:20px 
+}
 .mar-right-10{
 	margin-right:10px 
 }
@@ -152,7 +159,7 @@ table.dataTable tr td:first-child{
 table.dataTable tr th:first-child{
 	padding-left:30px; 
 }
-/*.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th,*/
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th,
  .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     padding: 12px !important;
 }
@@ -201,8 +208,8 @@ ul li{
     transition: border .2s cubic-bezier(.645,.045,.355,1),background .2s cubic-bezier(.645,.045,.355,1),box-shadow .2s cubic-bezier(.645,.045,.355,1);
 }
 ul.query{
-	padding-top:20px;
-	margin-bottom:20px;  
+	padding-top:30px;
+	padding-bottom:30px;  
 	padding-left:30px;
 }
 ul.query li{
@@ -251,4 +258,14 @@ ul.query li{
 }
 .selectOP option{
 	padding:10px;	
+}
+.addBorder{
+	border:1px solid #dde6e9;
+	text-align:center;
+	width:30px;
+	height:30px;
+	display:block;
+	line-height:30px;
+	background-color: #fcf9f9;
+	border-radius:5px 
 }

@@ -1,24 +1,6 @@
 <h3>维护表字段</h3>
 
- <div class="panel">
-      <ul class="clearFloat color_666 query">
-         <li class="float_left"><span>表名：</span><input type="text" class="ant-input"></li>
-         <li class="float_left">
-            <span>状态：</span>
-            <select class="ant-input" style="width:100px">
-               <option>全部</option>
-               <option>启用</option>
-               <option>禁用</option>
-            </select>
-         </li>
-         <li class="float_left">
-            <button class="btn btn-default btn-info" >查询</button>
-         </li>
-         <li class="float_left">
-            <button class="btn btn-default" >重置</button>
-         </li>
-      </ul>
- </div>
+<div class="panel" ng-include="'app/views/common/query_two.html'"></div>
 
 <div class="panel panel-default" ng-controller="LmTablefieldController" >
    
@@ -60,22 +42,27 @@
                <td>
                   <div class="media">                    
                      <div class="media-body">
-                        <p class="media-heading">{{tableField.status}}</p>                      
+                        <p class="media-heading">{{tableField.tableNote}}</p>                      
                   </div>
                </td>
                <td>
                   <div class="media">                    
                      <div class="media-body">
-                      <p class="media-heading">{{tableField.group}}</p>                  
+                      <p class="media-heading">{{tableField.fieldDetail}}</p>                  
                   </div>
                </td>
                <td >
-                  <p ng-if="className">启用</p>
-                  <p ng-if="!className">禁用</p>                 
+                 <div class="media"> 
+                     <p ng-if="className">启用</p>
+                     <p ng-if="!className">禁用</p>
+                  </div>  
+                  <!-- <div class="media">                    
+                       <p class="media-heading">{{data.state}}</p>                  
+                   </div>   -->               
                </td>
                <td style="white-space: nowrap">              
                   <div class="buttons" >
-                     <button ng-click="open('lg')" ng-attr-title="{{'编辑'}}" class="btn btn-sm btn-info">
+                     <button ng-click="edit('lg')" ng-attr-title="{{'编辑'}}" class="btn btn-sm btn-info">
                         <em class="fa fa-pencil"></em>
                      </button>
                      <button ng-click="enableState(className) " ng-attr-title="{{className ? '禁用' : '启用'}}" class="btn btn-sm btn-danger">
@@ -94,7 +81,6 @@
 
    <script type="text/ng-template" id="dialogWithNestedConfirmDialogId">
        <div class="ngdialog-message">
-            <!-- <p class="ant-modal-title">处理</p> -->
            <p class="">
               <label class="color_666 font_16 ">
                  <span class="icon-info font_24 float_left mar-right-10" style="color:#fa0"></span>

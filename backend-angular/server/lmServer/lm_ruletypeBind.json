@@ -1,0 +1,7 @@
+[
+    {"id": 1, "loanType": "现金贷",   "applicableScene": "贷前", "ruleNum": "3"},
+ 	{"id": 2, "loanType": "现金贷",   "applicableScene": "贷前", "ruleNum": "2"},
+    {"id": 3, "loanType": "现金贷",   "applicableScene": "贷前", "ruleNum": "2"},
+    {"id": 4, "loanType": "现金贷",   "applicableScene": "贷前", "ruleNum": "1"},
+    {"id": 5, "loanType": "现金贷",   "applicableScene": "贷前", "ruleNum": "4"}
+]
