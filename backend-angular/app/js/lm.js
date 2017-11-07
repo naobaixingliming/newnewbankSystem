@@ -635,3 +635,93 @@ App.controller('LmRuleTypeBindController', ['$scope', '$modal','$http','ngDialog
   };
   ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
 }]);
+
+ 
+/**
+ * 
+ * 待机审订单
+ * 
+*/
+App.controller('LmPendingOrdersController', ['$scope', '$http', 'editableOptions', 'editableThemes',
+  function($scope,$http, editableOptions, editableThemes) {
+   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_pendingOrders.json'
+  }).then(function(res){
+      console.log(res);
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 机审通过订单
+ * 
+*/
+App.controller('LmThroughOrderController', ['$scope', '$http', 'editableOptions', 'editableThemes',function($scope,$http, editableOptions, editableThemes) {   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+
+}]);
+
+/**
+ * 
+ * 机审拒绝订单
+ * 
+*/
+App.controller('LmRejectOrderController', ['$scope', '$http',function($scope,$http) {   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 蚂蚁请求记录
+ * 
+*/
+App.controller('LmRequestRecordController', ['$scope', '$http',function($scope,$http) {   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 人工复审
+ * 
+*/    
+App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$http) {   
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);

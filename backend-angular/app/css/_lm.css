@@ -269,3 +269,6 @@ ul.query li{
 	background-color: #fcf9f9;
 	border-radius:5px 
 }
+.form-control[disabled]{
+	color: #c9c9c9
+}

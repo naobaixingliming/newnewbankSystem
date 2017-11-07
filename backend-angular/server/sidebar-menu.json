@@ -98,23 +98,23 @@
     "submenu": [
       {
         "text": "待机审订单",
-        "sref": "app.portlets"
+        "sref": "app.pending-orders"
       },
       {
         "text": "机审通过订单",
-        "sref": "app.grid"
+        "sref": "app.through-orders"
       },
       {
         "text": "机审拒绝订单",
-        "sref": "app.grid-masonry"
+        "sref": "app.reject-order"
       },
       {
-        "text": "机审请求记录",
-        "sref": "app.typo"
+        "text": "蚂蚁请求记录",
+        "sref": "app.request-record"
       },
       {
         "text": "人工复审",
-       "sref": "app.icons-font",
+       "sref": "app.manual-review",
         "alert": "+400"
       }
     ],

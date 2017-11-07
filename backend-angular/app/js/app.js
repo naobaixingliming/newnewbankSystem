@@ -658,8 +658,38 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_ruleTypeBinding.html'),
         resolve: helper.resolveFor('xeditable','ngDialog')
     })
+    .state('app.pending-orders', {
+        url: '/pending-orders',
+        title: '待机审订单',
+        templateUrl: helper.basepath('_pendingOrders.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.through-orders', {
+        url: '/through-orders',
+        title: '机审通过订单',
+        templateUrl: helper.basepath('_throughOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.reject-order', {
+        url: '/reject-order',
+        title: '机审拒绝订单',
+        templateUrl: helper.basepath('_rejectOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.request-record', {
+        url: '/request-record',
+        title: '蚂蚁请求记录',
+        templateUrl: helper.basepath('_requestRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.manual-review', {
+        url: '/manual-review',
+        title: '人工复审',
+        templateUrl: helper.basepath('_manualReview.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
     
-    // rule-configuration app.rule-typeBind
+    // rule-configuration app.rule-typeBind   
     // CUSTOM RESOLVES
     //   Add your own resolves properties
     //   following this object extend

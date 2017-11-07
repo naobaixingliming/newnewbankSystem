@@ -1,0 +1,5 @@
+[
+{"orderNumber":"s_1","realName":"张飞","phoneNum":13157895643,"amountBorrow":50000,"durationBorrow":"180","interest":3000,"actualAccount":50000,"productTime":"2017-11-07","cost":3000,"infoFee":300,"serviceFee":30,"state":"good"},
+{"orderNumber":"s_2","realName":"张一","phoneNum":15632567654,"amountBorrow":100000,"durationBorrow":"180","interest":5000,"actualAccount":5000,"productTime":"2017-12-07","cost":3000,"infoFee":500,"serviceFee":80,"state":"good"}
+
+]
