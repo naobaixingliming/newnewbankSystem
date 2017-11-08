@@ -82,7 +82,25 @@ i{
 .font_40 {
 	font-size: 40px!important;
 }
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	color: #999;
+}
 
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+	color: #999;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+	color: #999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	color: #999;
+}
 
 .margin_center {
 	margin: 0 auto;
@@ -271,4 +289,7 @@ ul.query li{
 }
 .form-control[disabled]{
 	color: #c9c9c9
+}
+.w-100{
+	width: 100%;
 }

@@ -1,0 +1,12 @@
+ <div class="ngdialog-message">
+     <p class="">
+        <label class="color_666 font_16 ">
+           <span class="icon-info font_24 float_left mar-right-10" style="color:#fa0"></span>
+           <i ng-bind="className ? '您是否禁用' : '您是否启用'"></i>
+        </label>
+     </p>
+     <p class="clearFloat">
+         <button type="button" ng-click="confirm('confirmValue')" class="btn btn-primary  float_right">确定</button>
+         <button type="button" ng-click="closeThisDialog('back')" class="btn btn-default float_right mr">取消</button>
+     </p>
+ </div>

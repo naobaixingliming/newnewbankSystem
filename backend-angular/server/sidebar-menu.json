@@ -442,11 +442,11 @@
   { 
     "text": "渠道管理",
     "sref": "#",
-    "icon": "icon-doc",
+    "icon": "icon-doc", 
     "submenu": [
       {
         "text": "渠道管理",
-        "sref": "app.access-code"
+        "sref": "app.channel-manage"
       }
     ],
     "translate": "渠道管理"

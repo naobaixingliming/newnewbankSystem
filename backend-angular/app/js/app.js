@@ -688,8 +688,18 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_manualReview.html'),
         resolve: helper.resolveFor('xeditable')
     })
+
+
+ 
+
+    .state('app.channel-manage', {
+        url: '/channel-manage',
+        title: '人工复审',
+        templateUrl: helper.basepath('_channelManage.html'),
+       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
     
-    // rule-configuration app.rule-typeBind   
+    // rule-configuration app.rule-typeBind  channel-manage   
     // CUSTOM RESOLVES
     //   Add your own resolves properties
     //   following this object extend
