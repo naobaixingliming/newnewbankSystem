@@ -691,10 +691,22 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
 
 
  
+    .state('app.tastList', {
+        url: '/tastList',
+        title: '任务列表',
+        templateUrl: helper.basepath('_timedTast-tastList.html'),
+       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+    .state('app.executeRecord', {
+        url: '/executeRecord',
+        title: '执行记录',
+        templateUrl: helper.basepath('_timedTast-executeRecord.html'),
+       resolve: helper.resolveFor('xeditable','ui.select')
+    })
 
     .state('app.channel-manage', {
         url: '/channel-manage',
-        title: '人工复审',
+        title: '渠道管理',
         templateUrl: helper.basepath('_channelManage.html'),
        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })

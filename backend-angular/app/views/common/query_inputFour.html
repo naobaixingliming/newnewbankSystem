@@ -1,18 +1,18 @@
 <ul class="clearFloat color_666 query" >
-   <li class="float_left">
-      <span class="mar-right-10">渠道编码:</span><input type="text" class="ant-input">
+   <li class="float_left" ng-if="themeData.channelCode">
+      <span class="mar-right-10">{{themeData.channelCode}}</span><input type="text" class="ant-input">
+   </li>
+   <li class="float_left" ng-if="themeData.contacts">
+      <span class="mar-right-10">{{themeData.contacts}}</span><input type="text" class="ant-input">
+   </li>
+   <li class="float_left" ng-if="themeData.channelName">
+      <span class="mar-right-10">{{themeData.channelName}}</span><input type="text" class="ant-input">
+   </li>
+   <li class="float_left" ng-if="themeData.contactType">
+      <span class="mar-right-10">{{themeData.contactType}}</span><input type="text" class="ant-input">
    </li>
    <li class="float_left">
-      <span class="mar-right-10">联系人姓名:</span><input type="text" class="ant-input">
-   </li>
-   <li class="float_left">
-      <span class="mar-right-10">渠道名称:</span><input type="text" class="ant-input">
-   </li>
-   <li class="float_left">
-      <span class="mar-right-10">联系方式:</span><input type="text" class="ant-input">
-   </li>
-   <li class="float_left">
-      <button class="btn btn-default btn-info" >查询</button>
+      <button class="btn btn-default btn-info">查询</button>
    </li>
    <li class="float_left">
       <button class="btn btn-default" >重置</button>

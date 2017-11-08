@@ -1,0 +1,12 @@
+[
+    { "taskName": "计算逾期任务",  "taskDentifier": "doLate", "taskCycle": "0 30 3 * * ?", "taskMethodName":"com.kawang.cashloan.manage.job.QuartzLate",
+      "createTime":"2017-10-26 16:21:15","lastExecuteTime":"2017-11-08 00:00:00","successTimes": 1,"failureTimes": 0,"successRate":"100%","state": "启用"},
+ 	{ "taskName": "还款日当日扣款还款",  "taskDentifier": "doRepayment", "taskCycle": "0 0 10,15,20 * * ?", "taskMethodName":"com.kawang.cashloan.manage.job.QuartzRepayment",
+      "createTime":"2017-10-26 16:24:23","lastExecuteTime":" ","successTimes": 0,"failureTimes": 0,"successRate":"0%","state": "禁用"},
+    { "taskName": "逾期1日至7日定时扣款",  "taskDentifier": "doLateRepayment", "taskCycle": "0 30 9 * * ?", "taskMethodName":"com.kawang.cashloan.manage.job.QuartzLateRepayment",
+      "createTime":"2017-10-26 16:24:51","lastExecuteTime":" ","successTimes": 0,"failureTimes": 0,"successRate":"0%","state": "禁用"},
+    { "taskName": "逾期7天以上15天以内定时扣款",  "taskDentifier": "doLate7And15Repayment", "taskCycle": "0 0 9 * * ?", "taskMethodName":"com.kawang.cashloan.manage.job.QuartzLate7And15Repayment",
+      "createTime":"2017-10-26 16:25:23","lastExecuteTime":" ","successTimes": 0,"failureTimes": 0,"successRate":"0%","state": "禁用"},
+    { "taskName": "逾期15天以上30天以内定时扣款",  "taskDentifier": "doLate15And30Repayment", "taskCycle": "0 0 16 /2 * ?", "taskMethodName":"com.kawang.cashloan.manage.job.QuartzLate15And30Repayment",
+      "createTime":"2017-10-26 16:26:27","lastExecuteTime":" ","successTimes": 0,"failureTimes": 0,"successRate":"0%","state": "禁用"}
+ ]

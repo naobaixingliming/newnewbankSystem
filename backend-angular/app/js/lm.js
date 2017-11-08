@@ -731,6 +731,96 @@ App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$h
 
 
 
+/**
+ * 
+ * 任务列表
+ * 
+*/
+App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+  $scope.themeData={
+    channelCode:'任务名:'
+  }
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_tastList.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
+  
+  $scope.forbiBtn=function(){
+    ngDialog.openConfirm({      
+        templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+      })
+      .then(function(value){                        
+          Notify.alert( 
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
+
+  $scope.editBtn = function (data) { 
+    var modalInstance = $modal.open({
+      templateUrl: 'app/views/common/popup_inputBox_lg.html',
+      controller: ModalInstanceCtrl,
+      resolve:{
+        msg:function(){
+          return data;
+        }
+      }
+    });
+    var state = $('#modal-state');
+
+    modalInstance.result.then(function () {
+      state.text('Modal dismissed with OK status');
+    }, function () {
+      state.text('Modal dismissed with Cancel status');
+    });
+  };
+  
+  var ModalInstanceCtrl = function ($scope,$modalInstance,msg) {
+    $scope.data=msg;
+    $scope.ok = function () {
+      $modalInstance.close('closed');
+      console.log('提交成功');
+    };
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  };
+  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance","msg"];
+
+}]);
+
+/**
+ * 
+ *执行记录
+ * 
+*/
+App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$http','editableOptions', 'editableThemes',
+  function($scope, $modal, $filter, $http,editableOptions, editableThemes) {
+  // $scope.themeData={
+  //   channelCode:'任务名:'
+  // }
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_executeRecord.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
+  
+}]);
 
 
 /**
@@ -741,10 +831,10 @@ App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$h
 App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
   $scope.themeData={
-    channelCode:'渠道编码:',
-    contacts:'联系人姓名:',
-    channelName:'渠道名称:',
-    contactType:'渠道名称:'
+      channelCode:'渠道编码:',
+      contacts:'联系人姓名:',
+      channelName:'渠道名称:',
+      contactType:'联系方式:'
   }
   $scope.dataList = [];
   $http({

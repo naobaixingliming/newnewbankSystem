@@ -430,11 +430,11 @@
     "submenu": [
       {
         "text": "任务列表",
-        "sref": "app.multilevel.level1.level2.level3"
+        "sref": "app.tastList"
       },
       {
         "text": "执行记录",
-        "sref": "app.multilevel.level1.level2.level3.item"
+        "sref": "app.executeRecord"
       }      
     ],
     "translate": "定时任务"
