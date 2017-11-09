@@ -689,6 +689,20 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('xeditable')
     })
 
+    .state('app.access-codeManage', {
+        url: '/access-codeManage',
+        title: '访问码管理',
+        templateUrl: helper.basepath('_access-codeManage.html'),
+       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+    .state('app.system-userManage', {
+        url: '/system-userManage',
+        title: '用户管理',
+        templateUrl: helper.basepath('_system-userManage.html'),
+       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+
+
 
  
     .state('app.tastList', {

@@ -390,11 +390,11 @@
     "submenu": [
       {
         "text": "访问码管理",
-        "sref": "app.invoice"
+        "sref": "app.access-codeManage"
       },
       {
         "text": "用户管理",
-        "sref": "app.search"
+        "sref": "app.system-userManage"
       },
       {
         "text": "角色管理",

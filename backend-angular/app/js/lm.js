@@ -376,11 +376,6 @@ App.controller('LmBonusRecord', ['$scope', '$timeout', '$rootScope',function($sc
 App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
    
-  // $scope.dataList = [
-  //   {id: 1, name: 'arc_borrow_rule',   status: '借款规则管理', group: '借款类型', groupName: '启用'},
-  //   {id: 2, name: 'cl_mayi_req_log',   status: '借款规则管理', group: '审核状态,审核结果描述', groupName: '启用'},
-  //   {id: 3, name: 'cl_user_base_info', status: '用户详情表',   group: '是否已绑定,芝麻分',groupName: '启用'}
-  // ];
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -417,15 +412,16 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
       controller: ModalInstanceCtrl,
       size: size
     });
-    var state = $('#modal-state');
-
-    modalInstance.result.then(function () {
-      state.text('Modal dismissed with OK status');
-    }, function () {
-      state.text('Modal dismissed with Cancel status');
-    });
   };
   
+   $scope.addUser=function(size){
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContentId',
+        controller: ModalInstanceCtrl,
+        size: size
+      });
+  };
+
   // Please note that $modalInstance represents a modal window (instance) dependency.
   // It is not the same as the $modal service used above.
   var ModalInstanceCtrl = function ($scope, $modalInstance) {
@@ -442,20 +438,7 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
     };
   };
   ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
-
-  $scope.addUser=function(size){
-      var modalInstance = $modal.open({
-        templateUrl: 'myModalContentId',
-        controller: ModalInstanceCtrl,
-        size: size
-      });
-      var state = $('#modal-state');
-      modalInstance.result.then(function () {
-        state.text('Modal dismissed with OK status');
-      }, function () {
-        state.text('Modal dismissed with Cancel status');
-      });
-  };
+ 
 }]);
 
 
@@ -478,15 +461,15 @@ App.controller('LmRuleConfigController', ['$scope', '$modal','$http','ngDialog',
   })
   
   $scope.className=true;
-  $scope.enableState=function(pram){
-    var self = this;
+  $scope.enableState=function(){
+    // var self = this;
     ngDialog.openConfirm({      
         templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
         className: 'ngdialog-theme-default',
-        scope: $scope
+        scope: $scope       
       })
       .then(function(value){        
-         self.className =!pram;                  
+         // self.className =!pram;                  
           Notify.alert( 
               '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
               {status: 'info',timeout :1000}
@@ -496,31 +479,18 @@ App.controller('LmRuleConfigController', ['$scope', '$modal','$http','ngDialog',
     });
   }
 
-
   $scope.open = function (size) {
     var modalInstance = $modal.open({
       templateUrl: 'app/views/common/popup_field.html',
-      controller: ModalInstanceCtrl,
-      size: size
-    });
-    var state = $('#modal-state');
-    modalInstance.result.then(function () {
-      state.text('Modal dismissed with OK status');
-    }, function () {
-      state.text('Modal dismissed with Cancel status');
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve:{
+          msg:function(){
+            return ;
+          }
+       } 
     });
   };
-
-  var ModalInstanceCtrl = function ($scope, $modalInstance) {  
-    $scope.ok = function () {
-      $modalInstance.close('closed');
-      console.log('提交成功11');
-    };
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-    };
-  };
-  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance"];
 }]);
 
 
@@ -728,6 +698,102 @@ App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$h
 
 
 
+/**
+ * 
+ * 访问码管理
+ * 
+*/
+App.controller('LmAccessCodeManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+  $scope.queryData={
+      oneData:'用户名：',
+      twoData:'用户姓名：'
+  }
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_accessCodeManage.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
+  
+  $scope.forbiBtn=function(data){
+    $scope.data=data;
+    ngDialog.openConfirm({      
+        templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+    })
+    .then(function(value){                        
+        Notify.alert(
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
+  //新增--弹框
+   $scope.addBtn = function (size) { 
+    var modalInstance = $modal.open({
+      templateUrl: 'app/views/common/popup_inputBox_single.html',
+      controller: 'ModalInstanceCtrl',
+      size:size,
+      resolve:{
+        msg:function(){
+          return ;
+        }
+      }
+    });
+  };
+}]);
+
+/**
+ * 
+ * 用户管理
+ * 
+*/
+App.controller('LmUserManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+  // $scope.queryData={
+  //     oneData:'用户名：',
+  //     twoData:'用户姓名：'
+  // }
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_systemUserManage.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
+  
+  //查看--弹框 
+  $scope.addBtn=function(data,size){
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_field_2.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:data,
+              optionData:["系统管理员","财务人员","代理商","运营人员","催收管理员","催收专员","客服人员","风控人员","委外催收管理员","演示版本"]
+            };
+          }
+        }
+      });
+  };
+}]);
+
+
+
+
+
+
 
 
 
@@ -736,8 +802,7 @@ App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$h
  * 任务列表
  * 
 */
-App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
-  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
   $scope.themeData={
     channelCode:'任务名:'
   }
@@ -770,33 +835,14 @@ App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','n
   $scope.editBtn = function (data) { 
     var modalInstance = $modal.open({
       templateUrl: 'app/views/common/popup_inputBox_lg.html',
-      controller: ModalInstanceCtrl,
+      controller: 'ModalInstanceCtrl',
       resolve:{
         msg:function(){
           return data;
         }
       }
-    });
-    var state = $('#modal-state');
-
-    modalInstance.result.then(function () {
-      state.text('Modal dismissed with OK status');
-    }, function () {
-      state.text('Modal dismissed with Cancel status');
-    });
+    }); 
   };
-  
-  var ModalInstanceCtrl = function ($scope,$modalInstance,msg) {
-    $scope.data=msg;
-    $scope.ok = function () {
-      $modalInstance.close('closed');
-      console.log('提交成功');
-    };
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-    };
-  };
-  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance","msg"];
 
 }]);
 
@@ -805,11 +851,8 @@ App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','n
  *执行记录
  * 
 */
-App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$http','editableOptions', 'editableThemes',
-  function($scope, $modal, $filter, $http,editableOptions, editableThemes) {
-  // $scope.themeData={
-  //   channelCode:'任务名:'
-  // }
+App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$http','editableOptions', 'editableThemes',function($scope, $modal, $filter, $http,editableOptions, editableThemes) {
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -819,8 +862,9 @@ App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$htt
   },function(error){
       console.log('error');
   })
-  
+
 }]);
+
 
 
 /**
@@ -847,14 +891,12 @@ App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$htt
   })
   
   $scope.forbiBtn=function(pram){
-    // var self = this;
     ngDialog.openConfirm({      
         templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
         className: 'ngdialog-theme-default',
         scope: $scope
       })
-      .then(function(value){        
-         // self.className =!pram;                  
+      .then(function(value){                          
           Notify.alert( 
               '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
               {status: 'info',timeout :1000}
@@ -865,27 +907,22 @@ App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$htt
   }
 
 
-  $scope.editBtn = function (data) {
-     
+  $scope.editBtn = function (data) {   
     var modalInstance = $modal.open({
       templateUrl: 'app/views/common/popup_inputBox.html',
-      controller: ModalInstanceCtrl,
+      controller: 'ModalInstanceCtrl',
       resolve:{
         msg:function(){
           return data;
         }
       }
-    });
-    var state = $('#modal-state');
-
-    modalInstance.result.then(function () {
-      state.text('Modal dismissed with OK status');
-    }, function () {
-      state.text('Modal dismissed with Cancel status');
-    });
+    });    
   };
-  
-  var ModalInstanceCtrl = function ($scope, $modalInstance,msg) {
+
+}]);
+
+//公用弹框--控制器
+App.controller('ModalInstanceCtrl',['$scope','$modalInstance','msg',function($scope, $modalInstance,msg){
     $scope.data=msg;
     $scope.ok = function () {
       $modalInstance.close('closed');
@@ -894,7 +931,4 @@ App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$htt
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  };
-  ModalInstanceCtrl.$inject = ["$scope", "$modalInstance","msg"];
-
 }]);

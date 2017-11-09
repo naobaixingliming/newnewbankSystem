@@ -1,5 +1,15 @@
 <ul class="clearFloat color_666 query" >
-   <li class="float_left"><span>表名：</span><input type="text" class="ant-input"></li>
+   <!-- 日历插件 -->
+
+   <li class="float_left" ng-if="queryData.oneData">
+      <span>{{queryData.oneData}}</span>
+      <input type="text" class="ant-input">
+   </li>
+   <li class="float_left" ng-if="queryData.twoData">
+      <span>{{queryData.twoData}}</span>
+      <input type="text" class="ant-input">
+   </li>
+
    <li class="float_left">
       <span>状态：</span>
       <select class="ant-input" style="width:100px">
@@ -8,6 +18,7 @@
          <option>禁用</option>
       </select>
    </li>
+   
    <li class="float_left">
       <button class="btn btn-default btn-info" >查询</button>
    </li>
