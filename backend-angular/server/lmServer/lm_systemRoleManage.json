@@ -1,0 +1,20 @@
+[
+    { "roleManage": "系统管理员", "unique": "system", "orNot": "否", "createTime":"2016-05-06 00:59:00",
+      "founder":"system","modificateTime":"2016-05-06 12:00:00","modifier": "system","remark":"超级管理员"},
+    { "roleManage": "财务人员", "unique": "financialStaff", "orNot": "否", "createTime":"2016-05-06 00:59:00",
+      "founder":"system","modificateTime":"2016-05-06 12:00:00","modifier": "system","remark":"财务人员"},
+    { "roleManage": "代理商", "unique": "agent", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"代理商"},
+    { "roleManage": "运营人员", "unique": "operator", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"运营人员"},
+    { "roleManage": "催收管理员", "unique": "collector", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"催收管理员"},
+    { "roleManage": "催收专员", "unique": "collectionSpecialist", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"催收专员"},
+    { "roleManage": "客服人员", "unique": "customerServiceOfficer", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"客服人员"},
+    { "roleManage": "风控人员", "unique": "riskControlPersonnel", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":"风控人员"},
+    { "roleManage": "委外催收管理员", "unique": "outsourceCollector", "orNot": "否", "createTime":"2017-03-03 15:19:17",
+      "founder":"system","modificateTime":"2017-03-03 16:01:57","modifier": "system","remark":" "}     							
+ ]

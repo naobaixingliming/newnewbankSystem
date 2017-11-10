@@ -693,15 +693,20 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/access-codeManage',
         title: '访问码管理',
         templateUrl: helper.basepath('_access-codeManage.html'),
-       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })
     .state('app.system-userManage', {
         url: '/system-userManage',
         title: '用户管理',
         templateUrl: helper.basepath('_system-userManage.html'),
-       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })
-
+    .state('app.system-roleManage', {
+        url: '/system-roleManage',
+        title: '角色管理',
+        templateUrl: helper.basepath('_system-roleManage.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
 
 
  
@@ -709,20 +714,20 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         url: '/tastList',
         title: '任务列表',
         templateUrl: helper.basepath('_timedTast-tastList.html'),
-       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })
     .state('app.executeRecord', {
         url: '/executeRecord',
         title: '执行记录',
         templateUrl: helper.basepath('_timedTast-executeRecord.html'),
-       resolve: helper.resolveFor('xeditable','ui.select')
+        resolve: helper.resolveFor('xeditable','ui.select')
     })
 
     .state('app.channel-manage', {
         url: '/channel-manage',
         title: '渠道管理',
         templateUrl: helper.basepath('_channelManage.html'),
-       resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })
     
     // rule-configuration app.rule-typeBind  channel-manage   

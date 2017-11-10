@@ -12,13 +12,28 @@
 
    <li class="float_left">
       <span>状态：</span>
-      <select class="ant-input" style="width:100px">
+      <select class="ant-input" style="width:120px">
          <option>全部</option>
          <option>启用</option>
          <option>禁用</option>
       </select>
    </li>
-   
+   <li class="float_left" ng-if="url">
+      <span>角色：</span>
+      <select class="ant-input" style="width:120px">
+         <option selected></option>
+         <option>系统管理员</option>
+         <option>财务人员</option>
+         <option>代理商</option>
+         <option>运营人员</option>
+         <option>催收管理员</option>
+         <option>催收专员</option>
+         <option>客服人员</option>
+         <option>风控人员</option>
+         <option>委外催收管理员</option>
+      </select>
+   </li>
+
    <li class="float_left">
       <button class="btn btn-default btn-info" >查询</button>
    </li>
