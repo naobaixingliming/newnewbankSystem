@@ -707,6 +707,12 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_system-roleManage.html'),
         resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
     })
+    .state('app.system-meunManage', {
+        url: '/system-meunManage',
+        title: '菜单管理',
+        templateUrl: helper.basepath('_system-meunManage.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','nestable')
+    })
 
 
  

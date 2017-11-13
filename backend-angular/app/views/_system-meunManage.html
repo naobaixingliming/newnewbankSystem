@@ -1,0 +1,110 @@
+<h3>菜单管理</h3>
+<div ng-controller="LmMeunManageController">
+  <!-- <div class="panel" ng-include="'app/views/common/query_two.html'"></div> -->
+
+  <div class="panel panel-default" >
+      <div class="inline_block">
+          <input ng-click="myNestable.expandAll()"   type="button" class="btn btn-info" style="margin:10px 10px 10px 20px" value="展开所有" />
+          <input ng-click="myNestable.collapseAll()" type="button" class="btn btn-info" style="margin:10px 10px" value="收缩所有" />
+          <input ng-click="refreshBtn()" type="button" class="btn btn-info" style="margin:10px 10px" value="刷新" />
+          <input ng-click="editBtn()" type="button" class="btn btn-info" style="margin:10px 10px" value="修改" />
+          <input ng-click="addBtn('','lg')" type="button" class="btn btn-info" style="margin:10px 10px" value="添加" />
+      </div></br>
+      <div class="table-responsive">      
+        <div id="table-ext-2" class="table table-striped  table-hover">
+           <header class="relative" style="height:60px">
+              <ul class="clearFloat headTh"  >
+                 <li  style="width:130px" class="float_left">
+                    <div  class="checkbox c-checkbox">
+                       <label>
+                          <!-- <input type="checkbox"/> -->
+                          <span class="fa fa-check"></span>
+                       </label>
+                    </div>
+                 </li>        
+                 <li class="white_space float_left" style="width:18%">菜单名称</li>
+                 <li class="white_space float_left" style="width:18%">图标</li>
+                 <li class="white_space float_left" style="width:18%">备注</li>
+                 <li class="white_space float_left" style="width:18%">排序</li>
+                 <li class="white_space float_left" style="width:10%">是否是菜单</li>
+              </ul>
+           </header>
+
+           <div  nestable="" nestable-control="myNestable" >
+              <ol class="dd-list" >              
+               <li data-id="2" class="dd-item" style="height:700px">               
+                  <div class="line-handle clearFloat color_000">
+                     <div check-all="check-all" class="checkAllPosi"  >
+                          <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+                             <label>
+                                <input type="checkbox"/>
+                                <span class="fa fa-check"></span>
+                             </label>
+                          </div>
+                       </div>
+                     <p class="float_left " style="width:72%">菜单目录</p>
+                     <div class="float_left " style="padding-top:15px">是</div>
+                  </div>
+                    <ol class="dd-list">
+                       <!-- one start -->
+                       <li class="dd-item dd3-item" ng-repeat="data in dataList">
+                          <div class="  " >
+                              <div check-all="check-all" class="checkAllPosi" style="" >
+                                <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+                                   <label>
+                                      <input type="checkbox"/>
+                                      <span class="fa fa-check"></span>
+                                   </label>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="line-handle1 color_666">
+                            <div class="w-span w-18"><p class="pading-left-20">{{data.remarks}}</p></div>      
+                            <div class="w-span w-18">{{data.icon}}</div>
+                            <div class="w-span w-18">{{data.text}}</div>
+                            <div class="w-span w-18">{{data.sort}} </div>
+                            <div class="w-span w-10">{{data.orNot}}</div>
+                          </div>
+                          <ol class="dd-list">
+                              <!-- s start -->
+                             <li data-id="16" class="dd-item dd3-item" ng-repeat="list in data.menuName.submenu">                                
+                                <div class="checkbox c-checkbox checkAllPosi">
+                                   <label>
+                                      <input type="checkbox"/>
+                                      <span class="fa fa-check"></span>
+                                   </label>
+                                </div>
+                                <div class="line-handle">
+                                  <span style="width:130px;display:inline-block"></span>
+                                  <div class="w-span w-18"><p class="pading-left-20">{{list.userInfo}}</p></div>        
+                                  <div class="w-span w-18"></div>
+                                  <div class="w-span w-18">{{list.basicInfo}}</div>
+                                  <div class="w-span w-18">{{list.listNum}}</div>
+                                  <div class="w-span w-10">{{list.listNot}}</div>
+                                </div>
+                             </li>
+                             <!-- s end -->
+                          </ol>
+                       </li>
+                       <!-- one end -->
+                    </ol>
+                 </li>
+              
+              </ol>
+            </div>
+            <div ng-if="dataList.length==0">
+                <div >
+                   <div class="media text_center dataTables_empty">                    
+                      <p class="media-heading">当前暂无数据</p>                  
+                   </div>
+                </div>
+            </div>  
+        </div>
+        <!-- <div>
+           <div class="float_right" style="margin-right:50px" ng-include="'app/views/common/page.html'"></div>
+        </div> -->
+     </div>    
+
+  </div>
+</div>
+

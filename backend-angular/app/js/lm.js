@@ -851,7 +851,58 @@ App.controller('LmRoleManageController', ['$scope', '$modal','$filter', '$http',
 
 
 
+/**
+ * 
+ * 菜单管理
+ * 
+*/
+App.controller('LmMeunManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes',
+  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes) {
+  // $scope.queryData={
+  //     oneData:'工号：',
+  //     twoData:'真实姓名：'
+  // }
 
+  $scope.myNestable = {};
+  $scope.myNestable2 = {};
+
+  $scope.myNestable.onchange = function() {
+    console.log('Nestable changed..');
+  };
+  $scope.myNestable2.onchange = function() {
+    $scope.serialized = $scope.myNestable2.serialize();
+  };
+
+  //$scope.url=$location.url();
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_systemMeunManage.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+      console.log(res.data);
+  },function(error){
+      console.log('error');
+  })
+  
+  //查看--弹框 
+  $scope.addBtn=function(data,size){
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputTwoCol_twoLine.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:data
+              // optionData:["系统管理员","财务人员","代理商","运营人员","催收管理员","催收专员","客服人员","风控人员","委外催收管理员","演示版本"]
+            };
+          }
+        }
+      });
+  };
+
+}]);
 
 
 

@@ -1,0 +1,108 @@
+[
+    {     
+	    "icon": "icon-yonghuxinxi",
+	    "remarks": "用户信息",
+	    "sort":10,
+	    "orNot": "是",
+	    "text": "用户管理",
+	    "menuName": 	    	
+			{"submenu":[
+			      {
+			        "userInfo": "用户信息",
+			        "basicInfo": "用户基本信息",
+			        "listNum":10,
+			        "listNot":"是"
+			      },					
+			      {
+			        "userInfo": "用户认证信息",
+			        "basicInfo": "用户认证信息",
+			        "listNum":20,
+			        "listNot":"是"
+			      },
+			      {			
+			        "userInfo": "用户反馈列表",
+			        "basicInfo": "用户反馈列表",
+			        "listNum":33,
+			        "listNot":"是"
+			      }
+			]}	    	 	
+  	},
+  	{     
+	    "icon": "icon-dailishang",
+	    "remarks": "代理商管理-管理员",
+	    "sort":11,
+	    "orNot": "是",
+	    "text": "代理商管理",
+	    "menuName":{
+	    	"submenu":[
+			      {
+			        "userInfo": "用户代理等级",
+			        "basicInfo": "用户代理等级",
+			        "listNum":4,
+			        "listNot":"是"
+			      },					
+			      {
+			        "userInfo": "代理商列表",
+			        "basicInfo": "代理商列表",
+			        "listNum":5,
+			        "listNot":"是"
+			      },
+			      {
+			        "userInfo": "奖励资金账户",
+			        "basicInfo": "奖励资金账户",
+			        "listNum":30,
+			        "listNot":"是"
+			      },
+			      {
+			        "userInfo": "奖励获得记录",
+			        "basicInfo": "奖励获得记录",
+			        "listNum":40,
+			        "listNot":"是"
+			      },
+			      {			
+			        "userInfo": "奖励打款记录",
+			        "basicInfo": "奖励打款记录",
+			        "listNum":50,
+			        "listNot":"是"
+			      }
+	  		]
+	    }	
+  	},
+	{ 
+	    "icon": "icon-dailishang",
+	    "remarks": "代理商管理-代理商",
+	    "sort":12,
+	    "orNot": "是",
+	    "text": "一级代理商管理",
+	    "menuName":{
+	    	"submenu":[
+			      {
+			        "userInfo": "代理商管理",
+			        "basicInfo": "代理商管理",
+			        "listNum":4,
+			        "listNot":"是"
+			      },					
+			      {
+			        "userInfo": "奖励资金账户",
+			        "basicInfo": "奖励资金账户",
+			        "listNum":5,
+			        "listNot":"是"
+			      },
+			      {
+			        "userInfo": "奖励获得记录",
+			        "basicInfo": "奖励获得记录",
+			        "listNum":30,
+			        "listNot":"是"
+			      },
+			      {
+			        "userInfo": "奖励打款记录",
+			        "basicInfo": "奖励打款记录",
+			        "listNum":40,
+			        "listNot":"是"
+			      }
+	  		]
+	    }	
+  	}
+
+
+  ]

@@ -402,7 +402,7 @@
       },
       {
         "text": "菜单管理",
-        "sref": "app.profile"
+        "sref": "app.system-meunManage"
       },
       {
         "text": "字典管理",
