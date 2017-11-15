@@ -406,19 +406,15 @@
       },
       {
         "text": "字典管理",
-        "sref": "app.code-editor"
+        "sref": "app.system-dictionaryManage"
       },
       {
         "text": "系统参数设置",
-        "sref": "app.multilevel.level1" 
+        "sref": "app.system-paramSet" 
       },
       {
         "text": "Druid监控",
-        "sref": "app.multilevel.level1.item"
-      },
-      {
-        "text": "访问码管理",
-        "sref": "app.multilevel.level1.level2"
+        "sref": "app.druidMonitoring"
       }
     ],
     "translate": "系统管理"

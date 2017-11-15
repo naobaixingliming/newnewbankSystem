@@ -4,21 +4,28 @@
 </div>
 <div class="modal-body clearFloat padding-top-bottom-50 font_12">
 	<div class="row">
-		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>任务名:</label>
-		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.taskName" placeholder="请输入任务名" /></div>
+		<!-- ng-model="data.taskName" 任务名:-->
+		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>{{data.outText.firstT}}</label>
+		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message1" placeholder="请输入任务名" /></div>
 	</div>
 	<div class="row mar-top-20">
-		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>任务标识:</label>
-		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.taskDentifier" placeholder="请输入任务标识"/></div>
+		<!-- ng-model="data.taskDentifier" 任务标识:-->
+		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>{{data.outText.secondT}}</label>
+		
+		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message2" placeholder="请输入任务标识"/></div>
 	</div>
 	<div class="row mar-top-20">
-		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>任务方法名:</label> 
-		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.taskMethodName" placeholder="请输入方法名"/></div>
+		<!-- ng-model="data.taskMethodName" 任务方法名:-->
+		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>{{data.outText.thridT}}</label> 
+		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message3" placeholder="请输入方法名"/></div>
 	</div>
 	<div class="row mar-top-20">
-		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>任务周期:</label>
-		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.taskCycle" placeholder="请输入任务周期"/></div>
+		<!-- ng-model="data.taskCycle" 任务周期:-->
+		<label class="col-md-3 color_999 text_right"><i class="color_f50">*</i>{{data.outText.fourthT}}</label>
+		<div class="col-md-8"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message4" placeholder="请输入任务周期"/></div>
 	</div>
+	
+
 </div>
 <div class="modal-footer">
 	 <button ng-click="cancel()" class="btn btn-warning">返回</button>

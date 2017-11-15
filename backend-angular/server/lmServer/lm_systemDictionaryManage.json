@@ -1,0 +1,115 @@
+[
+    {     
+	    "dicType":"直系联系人",
+	    "typeCode":"KINSFOLK_RELATION",
+	    "remarks":"直系联系人",
+	    "sort":46,	    
+	    "subField":
+	    	{"submenu":[
+			      {
+			        "parentNode": 21,
+			        "name": "子女",
+			        "code":"02"
+			      },
+			      {
+			        "parentNode": 21,
+			        "name": "配偶",
+			        "code":"01"
+			      }
+			]}	  
+  	},
+  	{     			
+	    "dicType":"借款场景",
+	    "typeCode":"THIRD_DATA_SCENE",
+	    "remarks":"借款场景",
+	    "sort":45,	    
+	    "subField":
+	    	{"submenu":[
+			      
+			]}	  
+  	},
+    {     
+	    "dicType":"访问码时限",
+	    "typeCode":"ACCESS_CODE",
+	    "remarks":"访问码时限",
+	    "sort":44,	    
+	    "subField":
+	    	{"submenu":[
+			      {
+			        "parentNode":19,
+			        "name": "六个月",
+			        "code":"08"
+			      },
+			      {
+			        "parentNode": 19,
+			        "name": "六个月",
+			        "code":"071"
+			      }
+			]}	  
+  	},
+    {     	
+	    "dicType":"催收状态",
+	    "typeCode":"URGE_STATE",
+	    "remarks":"催收状态",
+	    "sort":43,	    
+	    "subField":
+	    	{"submenu":[
+			      {
+			        "parentNode":18,
+			        "name": "坏账",
+			        "code":"50"
+			      },
+			      {
+			        "parentNode": 18,
+			        "name": "催收成功",
+			        "code":"40"
+			      },
+			      {
+			        "parentNode": 18,
+			        "name": "承诺还款",
+			        "code":"30"
+			      },
+			      {
+			        "parentNode": 18,
+			        "name": "催收中",
+			        "code":"20"
+			      }
+			]}	  
+  	},
+    {     			
+	    "dicType":"催收方式",
+	    "typeCode":"URGE_WAY",
+	    "remarks":"催收方式",
+	    "sort":42,	    
+	    "subField":
+	    	{"submenu":[
+			      {
+			        "parentNode":16,
+			        "name": "其他",
+			        "code":"50"
+			      },
+			      {
+			        "parentNode": 16,
+			        "name": "现场沟通",
+			        "code":"40"
+			      },
+			      {
+			        "parentNode": 16,
+			        "name": "短信",
+			        "code":"30"
+			      },
+			      {
+			        "parentNode": 16,
+			        "name": "邮件",
+			        "code":"20"
+			      },
+			      {
+			        "parentNode": 16,
+			        "name": "电话",
+			        "code":"10"
+			      }
+			]}	  
+  	}
+
+
+]

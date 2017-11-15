@@ -689,6 +689,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('xeditable')
     })
 
+
+
+
     .state('app.access-codeManage', {
         url: '/access-codeManage',
         title: '访问码管理',
@@ -713,9 +716,24 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_system-meunManage.html'),
         resolve: helper.resolveFor('xeditable','ngDialog','nestable')
     })
+    .state('app.system-dictionaryManage', {
+        url: '/system-dictionaryManage',
+        title: '字典管理',
+        templateUrl: helper.basepath('_system-dictionaryManage.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+    .state('app.system-paramSet', {
+        url: '/system-paramSet',
+        title: '系统参数设置',
+        templateUrl: helper.basepath('_system-paramSet.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','ui.select')
+    })
+    .state('app.druidMonitoring', {
+        url: '/system-druidMonitor',
+        title: 'Druid监控',
+        templateUrl: helper.basepath('_system-paramSet.html')
+    })
 
-
- 
     .state('app.tastList', {
         url: '/tastList',
         title: '任务列表',

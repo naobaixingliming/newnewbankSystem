@@ -10,7 +10,7 @@
       <input type="text" class="ant-input">
    </li>
 
-   <li class="float_left">
+   <li class="float_left" ng-if="queryData.state">
       <span>状态：</span>
       <select class="ant-input" style="width:120px">
          <option>全部</option>
@@ -18,7 +18,7 @@
          <option>禁用</option>
       </select>
    </li>
-   <li class="float_left" ng-if="url">
+   <li class="float_left" ng-if="url" >
       <span>角色：</span>
       <select class="ant-input" style="width:120px">
          <option selected></option>
