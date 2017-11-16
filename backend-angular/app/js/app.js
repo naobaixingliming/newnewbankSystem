@@ -688,7 +688,36 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_manualReview.html'),
         resolve: helper.resolveFor('xeditable')
     })
-
+    .state('app.loan-order', {
+        url: '/loan-order',
+        title: '借款订单',
+        templateUrl: helper.basepath('_f_loanOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.borrow-progress', {
+        url: '/borrow-progress',
+        title: '借款进度',
+        templateUrl: helper.basepath('_f_borrowProgress.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.credit-order', {
+        url: '/credit-order',
+        title: '放款订单',
+        templateUrl: helper.basepath('_f_creditOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.payment-record', {
+        url: '/payment-record',
+        title: '支付记录',
+        templateUrl: helper.basepath('_g_paymentRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })    
+    .state('app.payment-audit', {
+        url: '/payment-audit',
+        title: '支付审核',
+        templateUrl: helper.basepath('_g_paymentAudit.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
 
 
 
@@ -731,7 +760,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.druidMonitoring', {
         url: '/system-druidMonitor',
         title: 'Druid监控',
-        templateUrl: helper.basepath('_system-paramSet.html')
+        templateUrl: helper.basepath('_system-druidMonitor.html')
     })
 
     .state('app.tastList', {

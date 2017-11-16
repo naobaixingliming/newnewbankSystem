@@ -8,6 +8,14 @@
 
 App.controller('LmUserInfo', ['$scope', '$timeout','$rootScope','ngDialog', function($scope, $timeout,$rootScope,ngDialog) {
   'use strict';
+
+  $scope.queryData={
+      oneData:'真实姓名：',
+      twoData:'手机号码：',
+      threeData:'证件号码：',
+      state:'yes'
+  }
+
   // Define global instance we'll use to destroy later 
   var dtInstance4;
   $timeout(function(){
@@ -65,6 +73,51 @@ App.controller('LmUserInfo', ['$scope', '$timeout','$rootScope','ngDialog', func
 App.controller('LmUserInfoAuthentice', ['$scope', '$timeout', '$rootScope',function($scope, $timeout,$rootScope) {
   'use strict';
 
+  $scope.queryData={
+      oneData:'真实姓名：',
+      twoData:'手机号码：',
+      selectOne:{
+        text:'银行卡状态：',
+        opinions:[
+          {opt:'未认证'},
+          {opt:'认证中'},
+          {opt:'已认证'}       
+        ]
+      },
+      selectTwo:{
+        text:'紧急联系人状态：',
+        opinions:[
+            {opt:'未完善'},
+            {opt:'完善中'},
+            {opt:'已完善'}       
+          ]
+      },
+      selectThree:{
+        text:'身份证认证状态：',
+        opinions:[
+            {opt:'未认证'},
+            {opt:'认证中'},
+            {opt:'已认证'}       
+          ]
+      },
+      selectFour:{
+        text:'手机运营商认证状态:',
+        opinions:[
+            {opt:'未认证'},
+            {opt:'认证中'},
+            {opt:'已认证'}       
+          ]
+      },
+      selectFive:{
+        text:'芝麻授信状态:',
+        opinions:[
+            {opt:'未授信'},
+            {opt:'授信中'},
+            {opt:'已授信'}       
+          ]
+      }
+  }
+
   // Define global instance we'll use to destroy later 
   var dtInstance4;
   $timeout(function(){
@@ -103,6 +156,13 @@ App.controller('LmUserInfoAuthentice', ['$scope', '$timeout', '$rootScope',funct
 */
 App.controller('LmUserFeedbackList', ['$scope', '$timeout', '$rootScope','ngDialog',function($scope, $timeout,$rootScope,ngDialog) {
   'use strict';
+  $scope.queryData={
+      // oneData:'真实姓名：',
+      twoData:'手机号码：',
+      state:'yes'    
+  }
+
+
   // Define global instance we'll use to destroy later 
   var dtInstance4;
   $timeout(function(){
@@ -175,6 +235,11 @@ App.controller('LmUserFeedbackList', ['$scope', '$timeout', '$rootScope','ngDial
 */
 App.controller('LmUserAgentRank', ['$scope', '$timeout', '$rootScope','ngDialog',function($scope, $timeout,$rootScope,ngDialog) {
   'use strict';
+
+  $scope.queryData={
+      twoData:'手机号码：'   
+  }
+
   // Define global instance we'll use to destroy later 
   var dtInstance4;
   $timeout(function(){
@@ -223,6 +288,10 @@ App.controller('LmUserAgentRank', ['$scope', '$timeout', '$rootScope','ngDialog'
 */
 App.controller('LmAgentList', ['$scope', '$timeout', '$rootScope','ngDialog',function($scope, $timeout,$rootScope,ngDialog) {
   'use strict';
+
+  $scope.queryData={
+      twoData:'手机号码：'   
+  }
 
   var dtInstance4;
   $timeout(function(){
@@ -275,6 +344,10 @@ App.controller('LmAgentList', ['$scope', '$timeout', '$rootScope','ngDialog',fun
 App.controller('LmBonusFundAccount', ['$scope', '$timeout', '$rootScope',function($scope, $timeout,$rootScope) {
   'use strict';
 
+  $scope.queryData={
+      twoData:'手机号码：'   
+  }
+
   var dtInstance4;
   $timeout(function(){
     if ( ! $.fn.dataTable ) return;
@@ -308,6 +381,10 @@ App.controller('LmBonusFundAccount', ['$scope', '$timeout', '$rootScope',functio
 */
 App.controller('LmAwardsGetRecords', ['$scope', '$timeout', '$rootScope',function($scope, $timeout,$rootScope) {
   'use strict';
+
+  $scope.queryData={
+      twoData:'代理商(手机号码):'   
+  }
 
   var dtInstance4;
   $timeout(function(){
@@ -344,6 +421,10 @@ App.controller('LmAwardsGetRecords', ['$scope', '$timeout', '$rootScope',functio
 App.controller('LmBonusRecord', ['$scope', '$timeout', '$rootScope',function($scope, $timeout,$rootScope) {
   'use strict';
 
+  $scope.queryData={
+      twoData:'手机号码：'   
+  }
+
   var dtInstance4;
   $timeout(function(){
     if ( ! $.fn.dataTable ) return;
@@ -376,6 +457,11 @@ App.controller('LmBonusRecord', ['$scope', '$timeout', '$rootScope',function($sc
 App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
    
+  $scope.queryData={
+      oneData:'表名:',
+      state:'yes'   
+  }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -449,7 +535,12 @@ App.controller('LmTablefieldController', ['$scope', '$modal','$filter', '$http',
 */
 App.controller('LmRuleConfigController', ['$scope', '$modal','$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $http,ngDialog, editableOptions, editableThemes,Notify) {
-   
+      
+  $scope.queryData={
+      oneData:'规则名称:',
+      state:'yes'   
+  } 
+    
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -501,7 +592,12 @@ App.controller('LmRuleConfigController', ['$scope', '$modal','$http','ngDialog',
 */
 App.controller('LmRuleTypeBindController', ['$scope', '$modal','$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $http,ngDialog, editableOptions, editableThemes,Notify) {
-   
+
+  $scope.queryData={
+      oneData:'借款类型:',
+      twoData:'适用场景:'   
+  }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -614,7 +710,13 @@ App.controller('LmRuleTypeBindController', ['$scope', '$modal','$http','ngDialog
 */
 App.controller('LmPendingOrdersController', ['$scope', '$http', 'editableOptions', 'editableThemes',
   function($scope,$http, editableOptions, editableThemes) {
-   
+
+   $scope.queryData={
+      oneData:'订单号:',
+      twoData:'姓名:',   
+      threeData:'手机号码:',   
+  }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -632,7 +734,14 @@ App.controller('LmPendingOrdersController', ['$scope', '$http', 'editableOptions
  * 机审通过订单
  * 
 */
-App.controller('LmThroughOrderController', ['$scope', '$http', 'editableOptions', 'editableThemes',function($scope,$http, editableOptions, editableThemes) {   
+App.controller('LmThroughOrderController', ['$scope', '$http', 'editableOptions', 'editableThemes',function($scope,$http, editableOptions, editableThemes) { 
+
+  $scope.queryData={
+      oneData:'订单号:',
+      twoData:'姓名:',   
+      threeData:'手机号码:',   
+  }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -650,7 +759,14 @@ App.controller('LmThroughOrderController', ['$scope', '$http', 'editableOptions'
  * 机审拒绝订单
  * 
 */
-App.controller('LmRejectOrderController', ['$scope', '$http',function($scope,$http) {   
+App.controller('LmRejectOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'订单号:',
+      twoData:'姓名:',   
+      threeData:'手机号码:',   
+  } 
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -667,7 +783,14 @@ App.controller('LmRejectOrderController', ['$scope', '$http',function($scope,$ht
  * 蚂蚁请求记录
  * 
 */
-App.controller('LmRequestRecordController', ['$scope', '$http',function($scope,$http) {   
+App.controller('LmRequestRecordController', ['$scope', '$http',function($scope,$http) {  
+
+  $scope.queryData={
+      oneData:'订单号:',
+      twoData:'姓名:',   
+      threeData:'手机号码:',   
+  } 
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -684,7 +807,243 @@ App.controller('LmRequestRecordController', ['$scope', '$http',function($scope,$
  * 人工复审
  * 
 */    
-App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$http) {   
+App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'订单号:',
+      twoData:'姓名:',   
+      threeData:'手机号码:'     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+
+/**
+ * 
+ * 借款订单
+ * 
+*/    
+App.controller('LmloanOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',   
+      threeData:'订单号:',
+      selectSix:{
+        text:'订单状态:',
+        opinions:[
+          {opt:'申请成功待审核'},
+          {opt:'自动审核通过'},
+          {opt:'自动审核不通过'}, 
+          {opt:'自动审核未决待人工复审'},
+          {opt:'人工复审通过'},      
+          {opt:'人工复审不通过'},
+          {opt:'放款成功'},
+          {opt:'放款失败'},
+          {opt:'还款成功'},
+          {opt:'还款成功-金额减免'},
+          {opt:'逾期'},
+          {opt:'坏账'}    
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 借款进度
+ * 
+*/    
+App.controller('LmborrowProgressController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',   
+      threeData:'订单号:',
+      selectSix:{
+        text:'状态:',
+        opinions:[
+          {opt:'申请成功待审核'},
+          {opt:'自动审核通过'},
+          {opt:'自动审核不通过'}, 
+          {opt:'自动审核未决待人工复审'},
+          {opt:'人工复审通过'},      
+          {opt:'人工复审不通过'},
+          {opt:'放款成功'},
+          {opt:'放款失败'},
+          {opt:'还款成功'},
+          {opt:'还款成功-金额减免'},
+          {opt:'逾期'},
+          {opt:'坏账'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 放款订单
+ * 
+*/    
+App.controller('LmcreditOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',   
+      threeData:'订单号:',
+      selectSix:{
+        text:'状态:',
+        opinions:[
+          {opt:'申请成功待审核'},
+          {opt:'自动审核通过'},
+          {opt:'自动审核不通过'}, 
+          {opt:'自动审核未决待人工复审'},
+          {opt:'人工复审通过'},      
+          {opt:'人工复审不通过'},
+          {opt:'放款成功'},
+          {opt:'放款失败'},
+          {opt:'还款成功'},
+          {opt:'还款成功-金额减免'},
+          {opt:'逾期'},
+          {opt:'坏账'}           
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+
+
+/**
+ * 
+ * 支付记录
+ * 
+*/    
+App.controller('LmpaymentRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'收款人姓名:',
+      twoData:'手机号码:',   
+      threeData:'订单号:',
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'待支付'},
+          {opt:'支付成功'}, 
+          {opt:'支付失败'},
+          {opt:'审核通过'},      
+          {opt:'审核不通过'},
+          {opt:'待审核'}         
+        ]
+      },
+      selectTwo:{
+        text:'业务:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'放款'},
+          {opt:'奖励'}, 
+          {opt:'退还'},
+          {opt:'还款'},      
+          {opt:'补扣'}        
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 支付审核
+ * 
+*/    
+App.controller('LmpaymentAuditController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'收款人姓名:',
+      twoData:'手机号码:'
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 支付对账记录
+ * 
+*/    
+App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'处理结果:',
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'未处理'},
+          {opt:'已处理'}         
+        ]
+      },
+  }
+
   $scope.dataList = [];
   $http({
       method: 'get',

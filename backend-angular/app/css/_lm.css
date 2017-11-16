@@ -238,10 +238,10 @@ ul li{
 ul.query{
 	padding-top:30px;
 	padding-bottom:30px;  
-	padding-left:30px;
+	padding-left:10px;
 }
 ul.query li{
-	margin-right:20px;
+	margin: 10px
 }
 .table > thead > tr > th {
     color: #333;
@@ -346,3 +346,6 @@ ul.query li{
 .w-span{
 	display: inline-block;
 }
+ .dataTables_length{
+      display: none;
+   }

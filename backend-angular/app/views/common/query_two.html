@@ -9,6 +9,48 @@
       <span>{{queryData.twoData}}</span>
       <input type="text" class="ant-input">
    </li>
+   <li class="float_left" ng-if="queryData.threeData">
+      <span>{{queryData.threeData}}</span>
+      <input type="text" class="ant-input">
+   </li>
+
+   <li class="float_left" ng-if="queryData.selectOne">
+      <span>{{queryData.selectOne.text}}</span>
+      <select class="ant-input" style="width:120px">
+         <option ng-repeat="v in queryData.selectOne.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+   <li class="float_left" ng-if="queryData.selectTwo">
+      <span>{{queryData.selectTwo.text}}</span>
+      <select class="ant-input" style="width:120px">
+         <option ng-repeat="v in queryData.selectTwo.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+   <li class="float_left" ng-if="queryData.selectThree">
+      <span>{{queryData.selectThree.text}}</span>
+      <select class="ant-input" style="width:120px">
+         <option ng-repeat="v in queryData.selectThree.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+   <li class="float_left" ng-if="queryData.selectFour">
+      <span>{{queryData.selectFour.text}}</span>
+      <select class="ant-input" style="width:120px">
+         <option ng-repeat="v in queryData.selectFour.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+   <li class="float_left" ng-if="queryData.selectFive">
+      <span>{{queryData.selectFive.text}}</span>
+      <select class="ant-input" style="width:120px">
+         <option ng-repeat="v in queryData.selectFive.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+   <li class="float_left" ng-if="queryData.selectSix">
+      <span>{{queryData.selectSix.text}}</span>
+      <select class="ant-input" style="width:160px">
+         <option ng-repeat="v in queryData.selectSix.opinions">{{v.opt}}</option>
+      </select>
+   </li>
+
 
    <li class="float_left" ng-if="queryData.state">
       <span>状态：</span>

@@ -1,26 +1,4 @@
 [
-  {
-    "text": "dashboard",
-    "sref": "#",
-    "icon": "icon-speedometer",
-    "alert": "3",
-    "label": "label label-info",
-    "submenu": [
-      {
-        "text": "版本 v1",
-        "sref": "app.dashboard"
-      },
-      {
-        "text": "版本 v2",
-        "sref": "app.dashboard_v2"
-      },
-      {
-        "text": "版本 v3",
-        "sref": "app.dashboard_v3"
-      }
-    ],
-    "translate": "版本"
-  },
   { 
     "text": "用户管理",
     "sref": "#",
@@ -127,17 +105,17 @@
     "submenu": [
       {
         "text": "借款订单",
-        "sref": "app.icons-weather",
+        "sref": "app.loan-order",
         "alert": "+100"
       },
       {
         "text": "借款进度",
-        "sref": "app.icons-weather",
+        "sref": "app.borrow-progress",
         "alert": "+100"
       },
       {
         "text": "放款订单",
-        "sref": "app.colors"
+        "sref": "app.credit-order"
       }      
     ],
     "translate": "借款管理"
@@ -149,11 +127,11 @@
     "submenu": [
       {
         "text": "支付记录",
-        "sref": "app.localization"
+        "sref": "app.payment-record"
       },
       {
         "text": "支付审核",
-        "sref": "app.infinite-scroll"
+        "sref": "app.payment-audit"
       },
       {
         "text": "支付对账记录",
