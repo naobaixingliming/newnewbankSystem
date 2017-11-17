@@ -1,0 +1,13 @@
+[ 
+    { "date": "2017-11-15 ", "numberOfUsers": "4 ", "loanAmount": "0 ", "goanAmount":"0 ","passRate":" 0.00%","overduePen":"0 ","collectTime": " 0",
+    "badCount":" 0 ","loanMoney":"0.00 ","repaymentAmount":"0.00 ","serviceAmount":"0.00 ","overdueAmount":"0.00 ","lateCharge":" 0.00","badDebt":"0.00 "},
+    { "date": "2017-11-14 ", "numberOfUsers": "4 ", "loanAmount": "0 ", "goanAmount":"0 ","passRate":" 0.00%","overduePen":"0 ","collectTime": " 0",
+    "badCount":" 0 ","loanMoney":"0.00 ","repaymentAmount":"0.00 ","serviceAmount":"0.00 ","overdueAmount":"0.00 ","lateCharge":" 0.00","badDebt":"0.00 "},
+    { "date": "2017-11-07 ", "numberOfUsers": "4 ", "loanAmount": "0 ", "goanAmount":"0 ","passRate":" 0.00%","overduePen":"0 ","collectTime": " 0",
+    "badCount":" 0 ","loanMoney":"0.00 ","repaymentAmount":"0.00 ","serviceAmount":"0.00 ","overdueAmount":"0.00 ","lateCharge":" 0.00","badDebt":"0.00 "},
+    { "date": "2017-10-15 ", "numberOfUsers": "4 ", "loanAmount": "0 ", "goanAmount":"0 ","passRate":" 0.00%","overduePen":"0 ","collectTime": " 0",
+    "badCount":" 0 ","loanMoney":"0.00 ","repaymentAmount":"0.00 ","serviceAmount":"0.00 ","overdueAmount":"0.00 ","lateCharge":" 0.00","badDebt":"0.00 "},
+    { "date": "2017-10-11 ", "numberOfUsers": "4 ", "loanAmount": "0 ", "goanAmount":"0 ","passRate":" 0.00%","overduePen":"0 ","collectTime": " 0",
+    "badCount":" 0 ","loanMoney":"0.00 ","repaymentAmount":"0.00 ","serviceAmount":"0.00 ","overdueAmount":"0.00 ","lateCharge":" 0.00","badDebt":"0.00 "}
+ ]
+                 

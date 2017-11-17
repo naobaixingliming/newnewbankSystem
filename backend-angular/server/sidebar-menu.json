@@ -135,11 +135,10 @@
       },
       {
         "text": "支付对账记录",
-        "sref": "app.timeline"
+        "sref": "app.payment-ReconciliateRecord"
       }      
     ],
-    "translate": "支付管理",
-    "alert": "new"
+    "translate": "支付管理"
   },
   { 
     "text": "还款管理",
@@ -167,7 +166,8 @@
         "sref": "app.form-wizard"
       }    
     ],
-    "translate": "还款管理"
+    "translate": "还款管理",
+     "alert": "无"
   },
   { 
     "text": "贷后管理",
@@ -187,7 +187,8 @@
         "sref": "app.form-imagecrop"
       }
     ],
-    "translate": "贷后管理"
+    "translate": "贷后管理",
+    "alert": "无"
   },
   { 
     "text": "催收人员管理",
@@ -199,7 +200,8 @@
         "sref": "app.form-uiselect"
       }
     ],
-    "translate": "催收人员管理"
+    "translate": "催收人员管理",
+    "alert": "无"
   },
   { 
     "text": "催收订单管理",
@@ -219,7 +221,8 @@
         "sref": "app.chart-js"
       }
     ],
-    "translate": "催收订单管理"
+    "translate": "催收订单管理",
+    "alert": "无"
   },
   { 
     "text": "我的催收订单",
@@ -251,7 +254,8 @@
         "sref": "app.table-datatable"
       }
     ],
-    "translate": "我的催收订单"
+    "translate": "我的催收订单",
+    "alert": "无"
   },
   { 
     "text": "催收预警",
@@ -271,7 +275,8 @@
         "sref": "app.table-uigrid"
       }
     ],
-    "translate": "催收预警"
+    "translate": "催收预警",
+    "alert": "无"
   },
   { 
     "text": "催收统计",
@@ -291,7 +296,8 @@
         "sref": "app.maps-vector"
       }
     ],
-    "translate": "催收统计"
+    "translate": "催收统计",
+    "alert": "无"
   },
   { 
     "text": "征信数据接口",
@@ -307,7 +313,8 @@
         "sref": "page.register"
       }
     ],
-    "translate": "征信数据接口"
+    "translate": "征信数据接口",
+    "alert": "无"
   },
   { 
     "text": "风控数据",
@@ -316,11 +323,11 @@
     "submenu": [
       {
         "text": "每日通过率",
-        "sref": "page.recover"
+        "sref": "app.dailyPass-rate"
       },
       {
         "text": "平台数据日报",
-        "sref": "page.lock"
+        "sref": "app.platformData-daily"
       }
     ],
     "translate": "风控数据"
@@ -332,18 +339,18 @@
     "submenu": [
       {
         "text": "每日还款分析",
-        "sref": "app.template"
+        "sref": "app.dailyRepayment-analysis"
       },
       {
         "text": "每月还款分析",
-        "sref": "page.404"
+        "sref": "app.monthlyRepayment-analysis"
       },
       {
         "text": "每月逾期分析",
-        "sref": "app.timeline"
+        "sref": "app.monthlyOverdue-analysis"
       }
     ],
-    "translate": "运营数据"
+    "translate": "运营数据"    
   },
   { 
     "text": "统计管理",
@@ -352,14 +359,14 @@
     "submenu": [
       {
         "text": "每日未还本金",
-        "sref": "app.timeline"
+        "sref": "app.epayment-principal"
       },
       {
         "text": "每日放款收支数据",
-        "sref": "app.calendar"
+        "sref": "app.expenditure-data"
       }      
     ],
-    "translate": "统计管理"
+    "translate": "统计管理"  
   },
   { 
     "text": "系统管理",

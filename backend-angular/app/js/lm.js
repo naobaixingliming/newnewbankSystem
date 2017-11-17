@@ -1,6 +1,60 @@
 /**=========================================================
- * Module: datepicker,js
- * DateTime Picker init
+ * 
+ * common controller
+ * qureyController
+ * 通用日历（有待优化）
+ *
+ =========================================================*/
+
+App.controller('queryController',['$scope',function($scope){
+  $scope.today = function() {
+    $scope.dt1 = new Date();
+    $scope.dt2 = new Date();
+    $scope.dt1 = null;
+    $scope.dt2 = null;
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    //$scope.dt = null;
+    $scope.dt1 = null;
+    $scope.dt2 = null;
+  };
+
+  // Disable weekend selection
+  // $scope.disabled = function(date, mode) {
+  //   return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  // };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.openStart= function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.openedStart = true;
+  };
+  $scope.openEnd= function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.openedEnd = true;
+  };
+  
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.format = 'yyyy-MM-dd';
+}])
+
+
+
+/**=========================================================
  * 
  * 用户信息
  *
@@ -13,7 +67,8 @@ App.controller('LmUserInfo', ['$scope', '$timeout','$rootScope','ngDialog', func
       oneData:'真实姓名：',
       twoData:'手机号码：',
       threeData:'证件号码：',
-      state:'yes'
+      state:'yes',
+      calendar:'注册时间'
   }
 
   // Define global instance we'll use to destroy later 
@@ -159,7 +214,8 @@ App.controller('LmUserFeedbackList', ['$scope', '$timeout', '$rootScope','ngDial
   $scope.queryData={
       // oneData:'真实姓名：',
       twoData:'手机号码：',
-      state:'yes'    
+      state:'yes',
+      calendar:'意见提交时间：'    
   }
 
 
@@ -788,7 +844,8 @@ App.controller('LmRequestRecordController', ['$scope', '$http',function($scope,$
   $scope.queryData={
       oneData:'订单号:',
       twoData:'姓名:',   
-      threeData:'手机号码:',   
+      threeData:'手机号码:', 
+      calendar:'创建时间:' 
   } 
 
   $scope.dataList = [];
@@ -812,7 +869,7 @@ App.controller('LmManualReviewController', ['$scope', '$http',function($scope,$h
   $scope.queryData={
       oneData:'订单号:',
       twoData:'姓名:',   
-      threeData:'手机号码:'     
+      threeData:'手机号码:'   
   }
 
   $scope.dataList = [];
@@ -839,6 +896,7 @@ App.controller('LmloanOrderController', ['$scope', '$http',function($scope,$http
       oneData:'真实姓名:',
       twoData:'手机号码:',   
       threeData:'订单号:',
+      calendar:'订单生成时间:',
       selectSix:{
         text:'订单状态:',
         opinions:[
@@ -966,6 +1024,7 @@ App.controller('LmpaymentRecordController', ['$scope', '$http',function($scope,$
       oneData:'收款人姓名:',
       twoData:'手机号码:',   
       threeData:'订单号:',
+      calendar:'打款时间:',
       selectOne:{
         text:'状态:',
         opinions:[
@@ -1011,7 +1070,8 @@ App.controller('LmpaymentAuditController', ['$scope', '$http',function($scope,$h
 
   $scope.queryData={
       oneData:'收款人姓名:',
-      twoData:'手机号码:'
+      twoData:'手机号码:',
+      calendar:'打款时间:'
   }
 
   $scope.dataList = [];
@@ -1034,6 +1094,7 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 
   $scope.queryData={
       oneData:'处理结果:',
+      calendar:'对账时间:',
       selectOne:{
         text:'状态:',
         opinions:[
@@ -1057,6 +1118,131 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 
 
 
+
+
+
+/**
+ * 
+ * 每日通过率
+ * 
+*/
+App.controller('LmdailyPassRateController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'处理结果:',
+      calendar:'对账时间:',
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'未处理'},
+          {opt:'已处理'}         
+        ]
+      },
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 平台数据日报
+ *
+*/
+App.controller('LmplatformDataDailyController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      calendar:'日期:'
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_controlDataDaily.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+
+/**
+ * 
+ * 每日未还本金
+ * 
+*/
+App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'处理结果:',
+      calendar:'对账时间:',
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'未处理'},
+          {opt:'已处理'}         
+        ]
+      },
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 每日放款收支数据
+ * 
+*/
+App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'处理结果:',
+      calendar:'对账时间:',
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'未处理'},
+          {opt:'已处理'}         
+        ]
+      },
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+
+
+
 /**
  * 
  * 访问码管理
@@ -1067,7 +1253,8 @@ App.controller('LmAccessCodeManageController', ['$scope', '$modal','$filter', '$
   $scope.queryData={
       oneData:'用户名：',
       twoData:'用户姓名：',
-      state:'yes'
+      state:'yes',
+      calendar:'创建时间:'
   }
   $scope.dataList = [];
   $http({
@@ -1240,7 +1427,7 @@ App.controller('LmMeunManageController', ['$scope', '$modal','$filter', '$http',
       url:'server/lmServer/lm_systemMeunManage.json'
   }).then(function(res){
       $scope.dataList=res.data;
-      console.log(res.data);
+      //console.log(res.data);
   },function(error){
       console.log('error');
   })
@@ -1260,7 +1447,6 @@ App.controller('LmMeunManageController', ['$scope', '$modal','$filter', '$http',
         }
       });
   };
-
 }]);
 
 

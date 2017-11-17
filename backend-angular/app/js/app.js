@@ -718,9 +718,60 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_g_paymentAudit.html'),
         resolve: helper.resolveFor('xeditable')
     })
+    .state('app.payment-ReconciliateRecord', {
+        url: '/payment-ReconciliateRecord',
+        title: '支付审核',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.dailyPass-rate', {
+        url: '/dailyPass-rate',
+        title: '每日通过率',
+        templateUrl: helper.basepath('_i_dailyPassRate.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.platformData-daily', {
+        url: '/platformData-daily',
+        title: '平台数据日报',
+        templateUrl: helper.basepath('_i_platformDataDaily.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
 
 
 
+    .state('app.dailyRepayment-analysis', {
+        url: '/dailyRepayment-analysis',
+        title: '每日还款分析',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.monthlyRepayment-analysis', {
+        url: '/monthlyRepayment-analysis',
+        title: '每月还款分析',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.monthlyOverdue-analysis', {
+        url: '/monthlyOverdue-analysis',
+        title: '每月逾期分析',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.epayment-principal', {
+        url: '/epayment-principal',
+        title: '每日未还本金',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.expenditure-data', {
+        url: '/expenditure-data',
+        title: '每日放款收支数据',
+        templateUrl: helper.basepath('_g_paymentReconciliateRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    
     .state('app.access-codeManage', {
         url: '/access-codeManage',
         title: '访问码管理',

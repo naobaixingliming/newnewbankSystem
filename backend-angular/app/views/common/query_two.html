@@ -1,5 +1,5 @@
 <ul class="clearFloat color_666 query" >
-   <!-- 日历插件 -->
+   
 
    <li class="float_left" ng-if="queryData.oneData">
       <span>{{queryData.oneData}}</span>
@@ -51,6 +51,26 @@
       </select>
    </li>
 
+   <!-- 日历插件 start-->
+   <li class="float_left" ng-controller="queryController" ng-if="queryData.calendar">
+      <span>{{queryData.calendar}}</span>
+      <div style="width:400px;display:inline-block;vertical-align: middle;">
+         <div class="input-group">
+            <input type="text" datepicker-popup="{{format}}" ng-model="dt1" is-open="openedStart" popup-placement="auto bottom-right"
+               datepicker-options="dateOptions" class="ant-input form-control" ng-click="openStart($event)" placeholder="开始日期" style="width:50%" /> 
+            
+             <input type="text" datepicker-popup="{{format}}" ng-model="dt2" is-open="openedEnd" 
+               datepicker-options="dateOptions" class="ant-input form-control" ng-click="openEnd($event)" placeholder="结束日期" style="width:50%"/> 
+
+               <span class="input-group-btn">
+                  <button type="button" ng-click="open($event)" class="btn btn-default">
+                     <em class="fa fa-calendar"></em>
+                  </button>
+               </span>     
+         </div>
+      </div>
+   </li>
+   <!-- 日历插件 end-->
 
    <li class="float_left" ng-if="queryData.state">
       <span>状态：</span>
@@ -77,9 +97,6 @@
    </li>
 
    <li class="float_left">
-      <button class="btn btn-default btn-info" >查询</button>
-   </li>
-   <li class="float_left">
-      <button class="btn btn-default" >重置</button>
+      <button class="btn btn-default btn-info mar-right-10" >查询</button><button class="btn btn-default" >重置</button>
    </li>
 </ul>
