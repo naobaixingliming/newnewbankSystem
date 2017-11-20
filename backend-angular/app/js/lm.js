@@ -1117,7 +1117,76 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 }]);
 
 
+/**
+ * 
+ * 第三方征信接口 2017-11-20
+ * 
+*/
+App.controller('LmInfoInterfaceController', ['$scope', '$modal','$filter', '$http','$location','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $filter, $http,$location,ngDialog, editableOptions, editableThemes,Notify) {
+  $scope.queryData={
+      oneData:'第三方名称:',
+      state:'yes'
+  }
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_creditInfoInterface.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
 
+  //编辑--弹框
+  $scope.editBtn=function(data,size){
+      if(data==''){
+        var webData='';
+      }else{
+        var webData={
+                message1:data.thirdPartyName,
+                message2:data.thirdPartyIdenty,
+                message3:data.keyValue,
+                selectMes1:data.encryptSelect
+            };
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputBox.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:webData,
+              frontText:{"oneField":"第三方名称:","twoField":"第三方标识:","threeField":"加密方式:", "selectField1":"key:"},
+              additional:{"oneField":"商户号:","twoField":"扩展字段:"},
+              addSelect:[{"option":"RSA"},{"option":"MD5"}]
+            };
+          }
+        }
+      });
+  };
+   
+
+ // 禁用--弹框 
+  $scope.forbidBtn=function(data){
+    $scope.data=data.stateOn;
+    ngDialog.openConfirm({      
+        templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+    })
+    .then(function(value){                        
+        Notify.alert(
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
+
+}]);
 
 
 
@@ -1238,7 +1307,6 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
       console.log('error');
   }) 
 }]);
-
 
 
 
@@ -1474,18 +1542,18 @@ App.controller('LmDictionaryManageController', ['$scope', '$modal','$filter', '$
   
   //查看--弹框 
   $scope.addBtn=function(data,size){
+      var webData={
+                message1:data.dicType,
+                message2:data.typeCode,
+                message3:data.remarks,
+                message4:data.sort
+            };
       var modalInstance = $modal.open({
         templateUrl: 'app/views/common/popup_inputTwoCol_twoLine.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve:{
           msg:function(){
-            var webData={
-                message1:data.dicType,
-                message2:data.typeCode,
-                message3:data.remarks,
-                message4:data.sort
-            };
             return {
               infoData:webData,
               outText:{"firstT":"字典类型:","secondT":"类型代码:","fourthT":"排序:","thridT":"备注:"}
@@ -1707,12 +1775,27 @@ App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$htt
 }]);
 
 //公用弹框--控制器
-App.controller('ModalInstanceCtrl',['$scope','$modalInstance','msg',function($scope, $modalInstance,msg){
+App.controller('ModalInstanceCtrl',['$scope','$modalInstance','$timeout','msg','Notify',function($scope, $modalInstance,$timeout,msg,Notify){
     $scope.data=msg;
-    // console.log(msg.infoData.message1==null);
+    //console.log(msg.infoData=="");
     $scope.ok = function () {
-      $modalInstance.close('closed');
-      console.log('提交成功');
+      if(false){
+          Notify.alert( 
+              '<i class="fa fa-warning font_32 color_fff mar-right-10 float_left"></i>数据不能为空', 
+              {status: 'warning',timeout :1500}
+          ); 
+          console.log('提交失败');   
+          return;  
+      }else{
+        $modalInstance.close('closed');
+        $timeout(function() {
+            Notify.alert( 
+                '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>提交成功', 
+                {status: 'info',timeout :1000}
+            );
+            console.log('提交成功');
+        }, 500);   
+      }
     };
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');

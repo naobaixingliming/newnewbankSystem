@@ -1,24 +1,53 @@
  <div class="modal-header">
 	 <button type="button" data-dismiss="modal" aria-hidden="true" class="close" ng-click="cancel()">×</button>
-	 <h5 id="myModalLabel" class="modal-title">编辑</h5>
+	 <h5 id="myModalLabel" class="modal-title" ng-bind="data.infoData !='' ? '编辑':'新增'"></h5>
 </div>
 <div class="modal-body clearFloat padding-top-bottom-50 font_14">
-	<div class="row ">
-		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>渠道编码:</label>
-		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.channelCode" placeholder="请输入渠道编码" /></div>
+
+	<!-- 必填 start -->
+	<div class="row mar-top-20" ng-if="data.frontText.oneField">
+		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.oneField}}</label>
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message1" placeholder=" " /></div>
 	</div>
-	<div class="row mar-top-20">
-		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>渠道名称:</label>
-		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.channelName" placeholder="请输入渠道名称"/></div>
+	<div class="row mar-top-20" ng-if="data.frontText.twoField">
+		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.twoField}}</label>
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message2" placeholder=" "/></div>
 	</div>
-	<div class="row mar-top-20">
-		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>联系人:</label> 
-		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.contacts" placeholder="请输入联系人"/></div>
+	<div class="row mar-top-20" ng-if="data.frontText.threeField">
+		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.threeField}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message3" placeholder=" "/></div>
 	</div>
-	<div class="row mar-top-20">
-		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>联系方式:</label>
-		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.contactType" placeholder="请输入联系方式"/></div>
+
+	<!-- 必填 end -->
+
+	<!-- select start -->
+	<div class="row mar-top-20" ng-if="data.frontText.selectField1">
+       <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField1}}</label>
+       <div class="col-md-5">
+	      <select class="ant-input w-100" ng-if="data.infoData.selectMes1">
+	         <option ng-repeat="d in data.infoData.selectMes1">{{d.opt}}</option>
+	      </select>
+	      <select class="ant-input w-100" ng-if="!data.infoData.selectMes1">
+	         <option selected disabled>请选择</option>
+	         <option ng-repeat="d in data.addSelect">{{d.option}}</option>
+	      </select>
+       </div>
+    </div>
+
+	<!-- select end -->
+
+	<!-- 非必填 start -->
+	<div class="row mar-top-20" ng-if="data.additional.oneField">
+		<label class="col-md-5 color_999 text_right">{{data.additional.oneField}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"   placeholder=" "/></div>
 	</div>
+	<div class="row mar-top-20" ng-if="data.additional.twoField">
+		<label class="col-md-5 color_999 text_right">{{data.additional.twoField}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"   placeholder=" "/></div>
+	</div>
+
+	<!-- 非必填 end -->
+
 </div>
 <div class="modal-footer">
 	 <button ng-click="cancel()" class="btn btn-warning">返回</button>

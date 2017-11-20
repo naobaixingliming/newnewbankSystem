@@ -725,6 +725,21 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('xeditable')
     })
 
+
+  
+    .state('app.creditInfo-interface', {
+        url: '/creditInfo-interface',
+        title: '第三方征信接口',
+        templateUrl: helper.basepath('_h_creditInfoInterface.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','nestable')
+    })
+    .state('app.relationship-maintenance', {
+        url: '/relationship-maintenance',
+        title: '场景与接口关系维护',
+        templateUrl: helper.basepath('_h_creditInfoInterface.html'),
+        resolve: helper.resolveFor('xeditable','ngDialog','nestable')
+    })
+
     .state('app.dailyPass-rate', {
         url: '/dailyPass-rate',
         title: '每日通过率',
@@ -737,7 +752,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_i_platformDataDaily.html'),
         resolve: helper.resolveFor('xeditable')
     })
-
 
 
     .state('app.dailyRepayment-analysis', {

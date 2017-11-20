@@ -1,0 +1,6 @@
+[
+    { "thirdPartyName": "蚂蚁风控", "thirdPartyIdenty": "MaYiRisk",  "state": "启用", "addTime": "2017-10-26 16:19:18", "stateOn":"禁用",
+    "encryptSelect":[{"opt":"RSA"},{"opt":"MD5"}],"keyValue":"123"}
+ 	
+]
+			

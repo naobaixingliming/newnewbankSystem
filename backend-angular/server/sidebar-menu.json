@@ -306,15 +306,14 @@
     "submenu": [
       {
         "text": "第三方征信接口",
-        "sref": "page.login"
+        "sref": "app.creditInfo-interface"
       },
       {
         "text": "场景与接口关系维护",
-        "sref": "page.register"
+        "sref": "app.register"
       }
     ],
-    "translate": "征信数据接口",
-    "alert": "无"
+    "translate": "征信数据接口"
   },
   { 
     "text": "风控数据",
