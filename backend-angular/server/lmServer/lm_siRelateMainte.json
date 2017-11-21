@@ -1,0 +1,5 @@
+[
+    { "sceneName": "贷前", "correlateInterface": "蚂蚁风控", "interfaceBelongs":"蚂蚁风控", "dataAcquisiteMode":"获取一次", "intervalTime":"",
+     "state": "启用", "addTime": "2017-10-26 16:19:18", "stateOn":"禁用"
+    }	
+]

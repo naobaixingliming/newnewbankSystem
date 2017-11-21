@@ -1121,7 +1121,7 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
  * 
  * 第三方征信接口 2017-11-20
  * 
-*/
+**/
 App.controller('LmInfoInterfaceController', ['$scope', '$modal','$filter', '$http','$location','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,$location,ngDialog, editableOptions, editableThemes,Notify) {
   $scope.queryData={
@@ -1188,7 +1188,62 @@ App.controller('LmInfoInterfaceController', ['$scope', '$modal','$filter', '$htt
 
 }]);
 
+/**
+ * 
+ * 场景与接口关系维护 2017-11-20
+ * 
+**/
+App.controller('LmSiRelateMainteController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_siRelateMainte.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  })
 
+  //编辑--弹框
+  $scope.editBtn=function(data,size){
+      if(data==''){
+        var webData='';
+      }else{
+        var webData=data;
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_selectBox.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:webData,
+              frontText:{"selectField1":"场景:","selectField2":"接口选择:","selectField3":"第三方:",
+                         "selectField4":"接口:","selectField5":"数据获取方式:","selectField6":"间隔时间（天）:"},
+              multiSelect:{
+                            "one":[{"option":"贷前"}],
+                            "two":[{"option":"第三方","tag":"yes"},{"option":"系统"}],
+                            "three":[{"option":"蚂蚁风控"}],
+                            "four":[{"option":"蚂蚁风控"}],
+                            "five":[{"option":"获取一次"},{"option":"每次获取"},{"option":"固定周期获取","tag":"yes"}],
+
+              }           
+            };
+          }
+        }
+      });
+  };
+   
+  // 禁用--提示框 
+  $scope.forbidBtn=function(){    
+    Notify.alert(
+          '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>操作成功', 
+          {status: 'info',timeout :2000}
+        );                      
+  }
+}]);
 
 /**
  * 

@@ -310,7 +310,7 @@
       },
       {
         "text": "场景与接口关系维护",
-        "sref": "app.register"
+        "sref": "app.relationship-maintenance" 
       }
     ],
     "translate": "征信数据接口"

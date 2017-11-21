@@ -1,0 +1,59 @@
+ <div class="modal-header">
+	 <button type="button" data-dismiss="modal" aria-hidden="true" class="close" ng-click="cancel()">×</button>
+	 <h5 id="myModalLabel" class="modal-title" ng-bind="data.infoData !='' ? '编辑':'新增'"></h5>
+</div>
+<div class="modal-body clearFloat padding-top-bottom-50 font_14">
+
+	<!-- select start -->
+	<div class="row mar-top-20" >
+       <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField1}}</label>
+       <div class="col-md-5">
+	      <select class="ant-input w-100"  ng-model="data.multiSelect.one[0]"  ng-options="d.option for d in data.multiSelect.one" ng-if="data.infoData"></select>
+	      <select class="ant-input w-100"  ng-model="modelOne"  ng-options="d.option for d in data.multiSelect.one" ng-if="!data.infoData"></select>
+       </div>
+    </div>
+
+	<div class="row mar-top-20" ng-if="data.frontText.selectField2">
+       <label class="col-md-5 color_999 text_right">{{data.frontText.selectField2}}</label>
+       <div class="col-md-5">
+       		<select class="ant-input w-100"  ng-model="data.multiSelect.two[0]"  ng-options="d.option for d in data.multiSelect.two" ng-if="data.infoData"></select>
+	      	<select class="ant-input w-100" ng-model="modelTwo" ng-options="d.option for d in data.multiSelect.two" ng-if="!data.infoData"></select>
+       </div>
+    </div>
+    <div class="row mar-top-20" ng-if="data.frontText.selectField3">
+       <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField3}}</label>
+       <div class="col-md-5">
+       	  <select class="ant-input w-100"  ng-model="data.multiSelect.three[0]"  ng-options="d.option for d in data.multiSelect.three" ng-if="data.infoData"></select>  
+	      <select class="ant-input w-100" ng-model="modelThree" ng-options="d.option for d in data.multiSelect.three" ng-if="!data.infoData"></select>	      
+       </div>
+    </div>
+    <div class="row mar-top-20" ng-if="data.frontText.selectField4">
+       <label class="col-md-5 color_999 text_right">{{data.frontText.selectField4}}</label>
+       <div class="col-md-5">
+          <select class="ant-input w-100"  ng-model="data.multiSelect.four[0]"  ng-options="d.option for d in data.multiSelect.four" ng-if="data.infoData"></select> 
+       	  <select class="ant-input w-100" ng-model="modelFour"  ng-options="d.option for d in data.multiSelect.four" ng-if="!data.infoData"></select>	      
+       </div>
+    </div>
+
+    <div class="row mar-top-20" ng-show="data.frontText.selectField5">
+       <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField5}}</label>
+       <div class="col-md-5">
+		  <select class="ant-input w-100"  ng-init="dataModel=data.multiSelect.five[0]" ng-model="dataModel"  
+		  			ng-options="d.option for d in data.multiSelect.five" ng-show="data.infoData" ></select>
+	      <select class="ant-input w-100"  ng-model="dataModel"  ng-options="d.option for d in data.multiSelect.five" ng-show="!data.infoData"></select>
+       </div>     
+    </div>
+
+	<!-- select end -->
+	
+	<div class="row mar-top-20" ng-show="dataModel.tag">
+		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField6}}</label>
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  /></div>
+	</div>
+
+</div>
+
+<div class="modal-footer">
+	 <button ng-click="cancel()" class="btn btn-warning">返回</button>
+	 <button ng-click="ok()" class="btn btn-primary">提交</button>        
+</div>

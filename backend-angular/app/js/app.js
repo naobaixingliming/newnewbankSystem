@@ -736,7 +736,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.relationship-maintenance', {
         url: '/relationship-maintenance',
         title: '场景与接口关系维护',
-        templateUrl: helper.basepath('_h_creditInfoInterface.html'),
+        templateUrl: helper.basepath('_h_siRelateMainte.html'),
         resolve: helper.resolveFor('xeditable','ngDialog','nestable')
     })
 
