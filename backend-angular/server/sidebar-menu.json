@@ -285,19 +285,18 @@
     "submenu": [
       {
         "text": "催回率统计",
-        "sref": "app.table-xeditable"
+        "sref": "app.recall-rateStatis"
       },
       {
         "text": "催收订单统计",
-        "sref": "app.maps-google"
+        "sref": "app.collecte-orderStatis"
       },
       {
         "text": "催收员每日统计",
-        "sref": "app.maps-vector"
+        "sref": "app.daily-statisticsColl"
       }
     ],
-    "translate": "催收统计",
-    "alert": "无"
+    "translate": "催收统计"    
   },
   { 
     "text": "征信数据接口",

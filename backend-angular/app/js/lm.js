@@ -1119,6 +1119,74 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 
 /**
  * 
+ * 催回率统计
+ * 
+*/    
+App.controller('LmrecallRateStatisController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      calendar:'日期:'      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 催收订单统计
+ * 
+*/    
+App.controller('LmcollecteOrderStatisController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      calendar:'日期:'      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 催收员每日统计
+ * 
+*/    
+App.controller('LmdailyStatisticsCollController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'催收员姓名:',
+      calendar:'日期:'      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
  * 第三方征信接口 2017-11-20
  * 
 **/
