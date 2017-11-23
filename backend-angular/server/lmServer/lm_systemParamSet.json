@@ -2,61 +2,61 @@
 	{	
 		"text":"协议参数",
 		"params":[
-			{"pramNum":"protocol_register","pramName":"注册协议","pramValue":"/h5/protocol_register.jsp","pramType":"协议参数","remarks":"注册协议","state":"启用"},
-			{"pramNum":"protocol_borrow","pramName":"借款协议","pramValue":"/h5/protocol_borrow.jsp","pramType":"协议参数","remarks":"借款协议","state":"启用"}
+			{"pramNum":"protocol_register","pramName":"注册协议","pramValue":"/h5/protocol_register.jsp","pramType":"协议参数","remarks":"注册协议","state":"启用","backState":"禁用"},
+			{"pramNum":"protocol_borrow","pramName":"借款协议","pramValue":"/h5/protocol_borrow.jsp","pramType":"协议参数","remarks":"借款协议","state":"启用","backState":"禁用"}
 		]
 	},{
 		"text":"业务参数",
 		"params":[	
-			{"pramNum":"fee", "pramName":"综合费用", "pramValue":"0.10,0.15", "pramType":"业务参数", "remarks":"综合费用集合", "state":"启用"},
-			{"pramNum":"service_fee", "pramName":"服务费", "pramValue":"0.75", "pramType":"业务参数", "remarks":"综合费用的75%", "state":"启用"},
-			{"pramNum":"info_auth_fee", "pramName":"信息认证费", "pramValue":"0.20", "pramType":"业务参数", "remarks":"综合费用的25%", "state":"启用"},
-			{"pramNum":"interest", "pramName":"借款利息", "pramValue":"0.05", "pramType":"业务参数", "remarks":"综合费用的5%", "state":"启用"},
-			{"pramNum":"repay_collection_info_name", "pramName":"平台收款账户信息-收款人", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用"},
-			{"pramNum":"repay_collection_info_bank", "pramName":"平台收款账户信息-收款行", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用"},
-			{"pramNum":"repay_collection_info_bank_card", "pramName":"平台收款账户信息-银行卡", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用"},		
-			{"pramNum":"repay_collection_info_alipay_account", "pramName":"平台收款账户信息-支付宝账号", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用"},
-			{"pramNum":"title", "pramName":"平台名称", "pramValue":"可希信贷", "pramType":"业务参数", "remarks":" ", "state":"启用"},
-			{"pramNum":"penalty_fee", "pramName":"逾期利率", "pramValue":"0.02,0.02", "pramType":"业务参数", "remarks":" ", "state":"启用"}
+			{"pramNum":"fee", "pramName":"综合费用", "pramValue":"0.10,0.15", "pramType":"业务参数", "remarks":"综合费用集合", "state":"启用","backState":"禁用"},
+			{"pramNum":"service_fee", "pramName":"服务费", "pramValue":"0.75", "pramType":"业务参数", "remarks":"综合费用的75%", "state":"启用","backState":"禁用"},
+			{"pramNum":"info_auth_fee", "pramName":"信息认证费", "pramValue":"0.20", "pramType":"业务参数", "remarks":"综合费用的25%", "state":"启用","backState":"禁用"},
+			{"pramNum":"interest", "pramName":"借款利息", "pramValue":"0.05", "pramType":"业务参数", "remarks":"综合费用的5%", "state":"启用","backState":"禁用"},
+			{"pramNum":"repay_collection_info_name", "pramName":"平台收款账户信息-收款人", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用","backState":"禁用"},
+			{"pramNum":"repay_collection_info_bank", "pramName":"平台收款账户信息-收款行", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用","backState":"禁用"},
+			{"pramNum":"repay_collection_info_bank_card", "pramName":"平台收款账户信息-银行卡", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用","backState":"禁用"},		
+			{"pramNum":"repay_collection_info_alipay_account", "pramName":"平台收款账户信息-支付宝账号", "pramValue":" ", "pramType":"业务参数", "remarks":"用于还款登记", "state":"启用","backState":"禁用"},
+			{"pramNum":"title", "pramName":"平台名称", "pramValue":"可希信贷", "pramType":"业务参数", "remarks":" ", "state":"启用","backState":"禁用"},
+			{"pramNum":"penalty_fee", "pramName":"逾期利率", "pramValue":"0.02,0.02", "pramType":"业务参数", "remarks":" ", "state":"启用","backState":"禁用"}
 		]
 	},{
 		"text":"系统关键参数",
 		"params":[
-			{"pramNum":"server_host", "pramName":"本机服务器域名", "pramValue":"http://api-simu.hzmayidai.com/", "pramType":"系统关键参数", "remarks":"第三方接口回调用的域名", "state":"启用"},
-			{"pramNum":"app_key", "pramName":"移动端密钥", "pramValue":"5r7YpCWlyZAawM", "pramType":"系统关键参数", "remarks":"第三方接口回调用的域名", "state":"启用"},
-			{"pramNum":"app_environment", "pramName":"应用环境（非技术人员勿动）", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"dev/prod", "state":"启用"},
+			{"pramNum":"server_host", "pramName":"本机服务器域名", "pramValue":"http://api-simu.hzmayidai.com/", "pramType":"系统关键参数", "remarks":"第三方接口回调用的域名", "state":"启用","backState":"禁用"},
+			{"pramNum":"app_key", "pramName":"移动端密钥", "pramValue":"5r7YpCWlyZAawM", "pramType":"系统关键参数", "remarks":"第三方接口回调用的域名", "state":"启用","backState":"禁用"},
+			{"pramNum":"app_environment", "pramName":"应用环境（非技术人员勿动）", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"dev/prod", "state":"启用","backState":"禁用"},
 			{"pramNum":"redis_ip", "pramName":"redis的ip地址", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"redis的ip地址", "state":"启用"},
-			{"pramNum":"mayi_username", "pramName":"蚂蚁科技开户用户名", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"蚂蚁科技开户用户名", "state":"启用"},
-			{"pramNum":"mayi_password", "pramName":"蚂蚁科技开户密码", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"蚂蚁科技开户密码", "state":"启用"}
+			{"pramNum":"mayi_username", "pramName":"蚂蚁科技开户用户名", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"蚂蚁科技开户用户名", "state":"启用","backState":"禁用"},
+			{"pramNum":"mayi_password", "pramName":"蚂蚁科技开户密码", "pramValue":"dev", "pramType":"系统关键参数", "remarks":"蚂蚁科技开户密码", "state":"启用","backState":"禁用"}
 		]
 	},{
 		"text":"H5参数",	
 		"params":[
-			{"pramNum":"5_about_us", "pramName":"关于我们", "pramValue":"/h5/aboutUs.jsp", "pramType":"H5参数", "remarks":"关于我们的", "state":"启用"},
-			{"pramNum":"h5_help", "pramName":"帮助中心", "pramValue":"/h5/help.jsp", "pramType":"H5参数", "remarks":"帮助中心", "state":"启用"},
-			{"pramNum":"h5_repay_help", "pramName":"还款帮助", "pramValue":"/h5/repay_help.jsp", "pramType":"H5参数", "remarks":"还款帮助", "state":"启用"},
-			{"pramNum":"h5_repay_type", "pramName":"还款方式", "pramValue":"/h5/repay_type.jsp", "pramType":"H5参数", "remarks":"还款方式", "state":"启用"},
-			{"pramNum":"h5_invite", "pramName":"邀请页面", "pramValue":"/h5/index.jsp", "pramType":"H5参数", "remarks":"邀请页面", "state":"启用"},
-			{"pramNum":"h5_invite_rule", "pramName":"邀请规则页面", "pramValue":"/h5/invite_rule.jsp", "pramType":"H5参数", "remarks":"邀请规则页面", "state":"启用"}
+			{"pramNum":"5_about_us", "pramName":"关于我们", "pramValue":"/h5/aboutUs.jsp", "pramType":"H5参数", "remarks":"关于我们的", "state":"启用","backState":"禁用"},
+			{"pramNum":"h5_help", "pramName":"帮助中心", "pramValue":"/h5/help.jsp", "pramType":"H5参数", "remarks":"帮助中心", "state":"启用","backState":"禁用"},
+			{"pramNum":"h5_repay_help", "pramName":"还款帮助", "pramValue":"/h5/repay_help.jsp", "pramType":"H5参数", "remarks":"还款帮助", "state":"启用","backState":"禁用"},
+			{"pramNum":"h5_repay_type", "pramName":"还款方式", "pramValue":"/h5/repay_type.jsp", "pramType":"H5参数", "remarks":"还款方式", "state":"启用","backState":"禁用"},
+			{"pramNum":"h5_invite", "pramName":"邀请页面", "pramValue":"/h5/index.jsp", "pramType":"H5参数", "remarks":"邀请页面", "state":"启用","backState":"禁用"},
+			{"pramNum":"h5_invite_rule", "pramName":"邀请规则页面", "pramValue":"/h5/invite_rule.jsp", "pramType":"H5参数", "remarks":"邀请规则页面", "state":"启用","backState":"禁用"}
 		]
 	},{
 		"text":"第三方",	
 		"params":[				
-			{"pramNum":"lianlian_business_no", "pramName":"连连支付商户号", "pramValue":"201408071000001543", "pramType":"第三方", "remarks":"调用第三方支付接口用", "state":"启用"},
-			{"pramNum":"tongdun_url_state", "pramName":"同盾是否请求测试环境", "pramValue":"0", "pramType":"第三方", "remarks":"同盾是否请求测试环境 1正式环境 0测试环境", "state":"启用"} 
+			{"pramNum":"lianlian_business_no", "pramName":"连连支付商户号", "pramValue":"201408071000001543", "pramType":"第三方", "remarks":"调用第三方支付接口用", "state":"启用","backState":"禁用"},
+			{"pramNum":"tongdun_url_state", "pramName":"同盾是否请求测试环境", "pramValue":"0", "pramType":"第三方", "remarks":"同盾是否请求测试环境 1正式环境 0测试环境", "state":"启用","backState":"禁用"} 
 		]
 	},{
 		"text":"备注参数",	
 		"params":[
-			{"pramNum":"remark_bank_card", "pramName":"绑卡备注", "pramValue":"备注 1.借款通过申请后，我们将会将你的所借款项发放到该张银行卡； 2.若申请重新绑卡，则新卡将激活为收款银行卡； 3.未完成借款期间不允许更换银行卡。", "pramType":"备注参数", "remarks":" ", "state":"启用"},
-			{"pramNum":"remark_profit_amount", "pramName":"邀请-我的奖金备注", "pramValue":"系统会在每月10日将上月9日至本月10日的奖金汇款至您绑定的银行卡，请注意查收。", "pramType":"备注参数", "remarks":" ", "state":"启用"},
-			{"pramNum":"remark_profit_amount", "pramName":"邀请-我的奖金备注", "pramValue":"系统会在每月10日将上月9日至本月10日的奖金汇款至您绑定的银行卡，请注意查收。", "pramType":"备注参数", "remarks":" ", "state":"启用"}
+			{"pramNum":"remark_bank_card", "pramName":"绑卡备注", "pramValue":"备注 1.借款通过申请后，我们将会将你的所借款项发放到该张银行卡； 2.若申请重新绑卡，则新卡将激活为收款银行卡； 3.未完成借款期间不允许更换银行卡。", "pramType":"备注参数", "remarks":" ", "state":"启用","backState":"禁用"},
+			{"pramNum":"remark_profit_amount", "pramName":"邀请-我的奖金备注", "pramValue":"系统会在每月10日将上月9日至本月10日的奖金汇款至您绑定的银行卡，请注意查收。", "pramType":"备注参数", "remarks":" ", "state":"启用","backState":"禁用"},
+			{"pramNum":"remark_profit_amount", "pramName":"邀请-我的奖金备注", "pramValue":"系统会在每月10日将上月9日至本月10日的奖金汇款至您绑定的银行卡，请注意查收。", "pramType":"备注参数", "remarks":" ", "state":"启用","backState":"禁用"}
 		]
 	},{
 		"text":"短信参数",	
 		"params":[
-			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用"},
-			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用"},
-			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用"}
+			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用","backState":"禁用"},
+			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用","backState":"禁用"},
+			{"pramNum":"sms_time_limit", "pramName":"短信验证码过期时间", "pramValue":"5", "pramType":"短信参数", "remarks":"单位：分钟", "state":"启用","backState":"禁用"}
 	]}
 ]

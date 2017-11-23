@@ -17,24 +17,49 @@
 		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.threeField}}</label> 
 		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message3" placeholder=" "/></div>
 	</div>
+	<div class="row mar-top-20" ng-if="data.frontText.fourField">
+		<label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.fourField}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.message4" placeholder=" "/></div>
+	</div>
+	<!-- 必填 end -->	
 
-	<!-- 必填 end -->
 
 	<!-- select start -->
 	<div class="row mar-top-20" ng-if="data.frontText.selectField1">
        <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField1}}</label>
        <div class="col-md-5">
-	      <select class="ant-input w-100" ng-if="data.infoData.selectMes1">
+       		<select class="ant-input w-100"  ng-model="data.multiSelect.one[0]"  ng-options="d.option for d in data.multiSelect.one" ng-if="data.infoData"></select>
+	      	<select class="ant-input w-100"  ng-model="modelTone" ng-options="d.option for d in data.multiSelect.one" ng-if="!data.infoData"></select>
+	      <!-- <select class="ant-input w-100" ng-if="data.infoData.selectMes1">
 	         <option ng-repeat="d in data.infoData.selectMes1">{{d.opt}}</option>
 	      </select>
 	      <select class="ant-input w-100" ng-if="!data.infoData.selectMes1">
 	         <option selected disabled>请选择</option>
 	         <option ng-repeat="d in data.addSelect">{{d.option}}</option>
-	      </select>
+	      </select> -->
        </div>
     </div>
-
+	<div class="row mar-top-20" ng-if="data.frontText.selectField2">
+       <label class="col-md-5 color_999 text_right"><i class="color_f50">*</i>{{data.frontText.selectField2}}</label>
+       <div class="col-md-5">
+       		<select class="ant-input w-100"  ng-model="data.multiSelect.two[0]"  ng-options="d.option for d in data.multiSelect.two" ng-if="data.infoData"></select>
+	      	<select class="ant-input w-100"  ng-model="modelTwo" ng-options="d.option for d in data.multiSelect.two" ng-if="!data.infoData"></select>
+       </div>
+    </div>
 	<!-- select end -->
+	
+
+	<!-- 非必填 传值 end -->
+	<div class="row mar-top-20" ng-if="data.frontText.oneChoose">
+		<label class="col-md-5 color_999 text_right">{{data.frontText.oneChoose}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.oneMsg" placeholder=" "/></div>
+	</div>
+	<div class="row mar-top-20" ng-if="data.frontText.twoChoose">
+		<label class="col-md-5 color_999 text_right">{{data.frontText.twoChoose}}</label> 
+		<div class="col-md-5"><input type="text" class="ant-input w-100"  ng-model="data.infoData.twoMsg" placeholder=" "/></div>
+	</div>
+	<!-- 非必填 传值 end -->
+
 
 	<!-- 非必填 start -->
 	<div class="row mar-top-20" ng-if="data.additional.oneField">

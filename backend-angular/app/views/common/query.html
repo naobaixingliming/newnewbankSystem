@@ -1,5 +1,6 @@
 <ul class="clearFloat color_666 query" >
-   
+
+   <!--输入框 start  -->
    <li class="float_left" ng-if="queryData.oneData">
       <span>{{queryData.oneData}}</span>
       <input type="text" class="ant-input">
@@ -20,7 +21,9 @@
       <span>{{queryData.fiveData}}</span>
       <input type="text" class="ant-input">
    </li>
+   <!--输入框 end  -->
 
+   <!-- 下拉选择 start -->
    <li class="float_left" ng-if="queryData.selectOne">
       <span>{{queryData.selectOne.text}}</span>
       <select class="ant-input" style="width:120px">
@@ -57,6 +60,7 @@
          <option ng-repeat="v in queryData.selectSix.opinions">{{v.opt}}</option>
       </select>
    </li>
+   <!-- 下拉选择 end -->
 
    <!-- 日历插件 start-->
    <li class="float_left" ng-controller="queryController" ng-if="queryData.calendar">
@@ -104,6 +108,9 @@
    </li>
 
    <li class="float_left">
-      <button class="btn btn-default btn-info mar-right-10" >查询</button><button class="btn btn-default" >重置</button>
+      <button class="btn btn-default btn-info mar-right-10" >查询</button>
+      <button class="btn btn-default" >重置</button>
+      <button class="btn btn-default" ng-click="editBtn('','md')" ng-if="queryData.oneBtn">{{queryData.oneBtn}}</button>
+      <button class="btn btn-default" ng-click="refresh()" ng-if="queryData.twoBtn">{{queryData.twoBtn}}</button>
    </li>
 </ul>

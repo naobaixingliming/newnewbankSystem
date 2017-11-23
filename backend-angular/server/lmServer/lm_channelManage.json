@@ -1,5 +1,5 @@
 [
-    { "channelCode": "utf-8",   "channelName": "dg", "contacts": "seven", "contactType":"email","createTime":"2017-02-14","state": "启用"},
- 	{ "channelCode": "utf-8",   "channelName": "se", "contacts": "deven", "contactType":"qq","createTime":"2017-06-18","state": "启用"},
-    { "channelCode": "utf-8",   "channelName": "dv", "contacts": "leo", "contactType":"tel","createTime":"2017-11-11","state": "启用"}
+    { "channelCode": "utf-8",   "channelName": "111111", "contacts": "seven", "contactType":"email","createTime":"2017-02-14","state": "启用","backState":"禁用"},
+ 	{ "channelCode": "不晓得",   "channelName": "se", "contacts": "deven", "contactType":"qq","createTime":"2017-06-18","state": "禁用","backState":"启用"},
+    { "channelCode": "utf-8",   "channelName": "dv三生三世", "contacts": "leo", "contactType":"tel","createTime":"2017-11-11","state": "启用","backState":"禁用"}
  ]

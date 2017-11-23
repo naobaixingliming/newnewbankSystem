@@ -7,15 +7,16 @@
           <input ng-click="myNestable.expandAll()"   type="button" class="btn btn-info" style="margin:10px 10px 10px 20px" value="展开所有" />
           <input ng-click="myNestable.collapseAll()" type="button" class="btn btn-info" style="margin:10px 10px" value="收缩所有" />
           <input ng-click="refreshBtn()" type="button" class="btn btn-info" style="margin:10px 10px" value="刷新" />
-          <input ng-click="editBtn()" type="button" class="btn btn-info" style="margin:10px 10px" value="修改" />
-          <input ng-click="addBtn('','lg')" type="button" class="btn btn-info" style="margin:10px 10px" value="添加" />
+
+          <input ng-click="editBtn(myModel.list,'md')" type="button" class="btn btn-info " ng-disabled="iTag" style="margin:10px 10px" value="修改" />
+          <input ng-click="editBtn('','md')" type="button" class="btn btn-info" ng-disabled="iTag" style="margin:10px 10px" value="添加" />
       </div></br>
       <div class="table-responsive">      
         <div id="table-ext-2" class="table table-striped  table-hover">
            <header class="relative" style="height:60px">
               <ul class="clearFloat headTh"  >
                  <li  style="width:130px" class="float_left">
-                    <div  class="checkbox c-checkbox">
+                    <div  class="checkbox c-checkbox ">
                        <label>
                           <!-- <input type="checkbox"/> -->
                           <span class="fa fa-check"></span>
@@ -34,29 +35,31 @@
               <ol class="dd-list" >              
                <li data-id="2" class="dd-item" style="height:700px">               
                   <div class="line-handle clearFloat color_000">
-                     <div check-all="check-all" class="checkAllPosi"  >
+                      <!--<div check-all="check-all" class="checkAllPosi" >
                           <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
                              <label>
                                 <input type="checkbox"/>
                                 <span class="fa fa-check"></span>
                              </label>
                           </div>
-                       </div>
+                       </div> -->
+                      <div  class="checkAllPosi">                               
+                            <label class="checkbox c-checkbox" >
+                               <input id="" type="radio" name="i-radio" / >
+                               <span class="fa fa-check"></span>
+                            </label>
+                      </div>
                      <p class="float_left " style="width:72%">菜单目录</p>
                      <div class="float_left " style="padding-top:15px">是</div>
                   </div>
                     <ol class="dd-list">
                        <!-- one start -->
                        <li class="dd-item dd3-item" ng-repeat="data in dataList">
-                          <div class="  " >
-                              <div check-all="check-all" class="checkAllPosi" style="" >
-                                <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
-                                   <label>
-                                      <input type="checkbox"/>
-                                      <span class="fa fa-check"></span>
-                                   </label>
-                                </div>
-                             </div>
+                          <div  class="checkAllPosi" >                               
+                             <label class="checkbox c-checkbox" >
+                               <input type="radio" name="i-radio" ng-model="myModel.list" ng-value="data"/>
+                               <span class="fa fa-check"></span>
+                            </label>
                           </div>
                           <div class="line-handle1 color_666">
                             <div class="w-span w-18"><p class="pading-left-20">{{data.remarks}}</p></div>      
@@ -67,12 +70,12 @@
                           </div>
                           <ol class="dd-list">
                               <!-- s start -->
-                             <li data-id="16" class="dd-item dd3-item" ng-repeat="list in data.menuName.submenu">                                
-                                <div class="checkbox c-checkbox checkAllPosi">
-                                   <label>
-                                      <input type="checkbox"/>
-                                      <span class="fa fa-check"></span>
-                                   </label>
+                             <li data-id="16" class="dd-item dd3-item" ng-repeat="list in data.menuName.submenu">                                                       
+                                <div  class="checkAllPosi" >                             
+                                    <label class="checkbox c-checkbox" >
+                                       <input id="" type="radio" name="i-radio" />
+                                       <span class="fa fa-check"></span>
+                                    </label>                                
                                 </div>
                                 <div class="line-handle">
                                   <span style="width:130px;display:inline-block"></span>

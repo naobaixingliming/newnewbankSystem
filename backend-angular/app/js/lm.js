@@ -2169,7 +2169,7 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 
 /**
  * 
- * 访问码管理
+ * 访问码管理---------------------------------------------------------------------------------------------------
  * 
 */
 App.controller('LmAccessCodeManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
@@ -2207,23 +2207,40 @@ App.controller('LmAccessCodeManageController', ['$scope', '$modal','$filter', '$
     });
   }
   //新增--弹框
-   $scope.addBtn = function (size) { 
-    var modalInstance = $modal.open({
-      templateUrl: 'app/views/common/popup_inputThreeCol_oneLine.html',
-      controller: 'ModalInstanceCtrl',
-      size:size,
-      resolve:{
-        msg:function(){
-          return ;
+  $scope.newAddBtn=function(data,size){
+      if(data==''){
+        var webData='';
+      }else{
+        var webData={};
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputThreeRow.html',
+        controller: 'ModalInstanceCtrl',
+        size:size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:webData,
+              frontText:{"oneField":"访问码:",
+                         "selectField1":"绑定管理员:","selectField2":"有效时间:"},
+                         // "oneChoose":"备注:"},
+              multiSelect:{
+                          "one":[{"option":"system"},{"option":"18268883461"},{"option":"yubo"},{"option":"14758263512"},{"option":"gaoqiiu"}],
+                          "two":[{"option":"两小时"},{"option":"十二小时"},{"option":"一天"},{"option":"两天"},{"option":"七天"},{"option":"一个月"},
+                                 {"option":"两个月"},{"option":"六个月"}
+                                ]
+              }   
+            };
+          }
         }
-      }
-    });
+      });
   };
+  
 }]);
 
 /**
  * 
- * 用户管理
+ * 用户管理---------------------------------------------------------------------------------------------------
  * 
 */
 App.controller('LmUserManageController', ['$scope', '$modal','$filter', '$http','$location','ngDialog', 'editableOptions', 'editableThemes','Notify',
@@ -2244,7 +2261,7 @@ App.controller('LmUserManageController', ['$scope', '$modal','$filter', '$http',
       console.log('error');
   })
   
-  //查看--弹框 
+  //查看、新增--弹框 
   $scope.addBtn=function(data,size){
       var modalInstance = $modal.open({
         templateUrl: 'app/views/common/popup_field_2.html',
@@ -2260,19 +2277,36 @@ App.controller('LmUserManageController', ['$scope', '$modal','$filter', '$http',
         }
       });
   };
+
+  //重置密码、锁定、解锁--弹框 
+  $scope.lockBtn=function(pram){
+    $scope.data=pram;
+    ngDialog.openConfirm({      
+        templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
+        className: 'ngdialog-theme-default',
+        scope: $scope
+    })
+    .then(function(value){                        
+        Notify.alert(
+              '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>修改成功', 
+              {status: 'info',timeout :1000}
+            );                 
+      }, function(value){     
+          return;
+    });
+  }
+
 }]);
 
 /**
  * 
- * 角色管理
+ * 角色管理---------------------------------------------------------------------------------------------------
+ * 
  * 
 */
 App.controller('LmRoleManageController', ['$scope', '$modal','$filter', '$http','$location','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,$location,ngDialog, editableOptions, editableThemes,Notify) {
-  $scope.queryData={
-      oneData:'工号：',
-      twoData:'真实姓名：'
-  }
+ 
   $scope.url=$location.url();
   $scope.dataList = [];
   $http({
@@ -2284,17 +2318,32 @@ App.controller('LmRoleManageController', ['$scope', '$modal','$filter', '$http',
       console.log('error');
   })
   
-  //查看--弹框 
+  //修改、新增--弹框 
   $scope.addBtn=function(data,size){
+      if(data==''){
+        var webData='';
+      }else{
+       var webData={
+              message1:data.roleManage,
+              message2:data.unique,
+              oneMsg:data.remark         //非必填             
+        };
+      }    
       var modalInstance = $modal.open({
-        templateUrl: 'app/views/common/popup_inputTwoCol_twoLine_s.html',
+        templateUrl: 'app/views/common/popup_inputTwoRow.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve:{
           msg:function(){
             return {
-              infoData:data
-              // optionData:["系统管理员","财务人员","代理商","运营人员","催收管理员","催收专员","客服人员","风控人员","委外催收管理员","演示版本"]
+              infoData:webData,
+              outText:{"firstT":"角色名称:","secondT":"角色唯一标示:",
+                       "selectField1":"是否启用:",    //下拉box
+                       "oneChoose":"备注:"            //非必填   
+                       },
+              multiSelect:{
+                          "one":[{"option":"是"},{"option":"否"}]   //下拉内容 
+                        }         
             };
           }
         }
@@ -2325,21 +2374,20 @@ App.controller('LmRoleManageController', ['$scope', '$modal','$filter', '$http',
 
 /**
  * 
- * 菜单管理
+ * 菜单管理---------------------------------------------------------------------------------------------------
+ * 
  * 
 */
 App.controller('LmMeunManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes) {
-  // $scope.queryData={
-  //     oneData:'工号：',
-  //     twoData:'真实姓名：'
-  // }
 
   $scope.myNestable = {};
   $scope.myNestable2 = {};
 
+  $scope.iTag=true;
   $scope.myNestable.onchange = function() {
     console.log('Nestable changed..');
+    $scope.iTag=false;
   };
   $scope.myNestable2.onchange = function() {
     $scope.serialized = $scope.myNestable2.serialize();
@@ -2351,36 +2399,58 @@ App.controller('LmMeunManageController', ['$scope', '$modal','$filter', '$http',
       url:'server/lmServer/lm_systemMeunManage.json'
   }).then(function(res){
       $scope.dataList=res.data;
-      //console.log(res.data);
   },function(error){
       console.log('error');
   })
-  
-  //查看--弹框 
-  $scope.addBtn=function(data,size){
+
+  //修改、查看--弹框
+  $scope.myModel={list:''};//数据容器
+  $scope.editBtn=function(data,size){
+      console.log('data:'+data);
+      if(data==''){
+        var webData='';
+      }else{
+        var webData={
+                message1:"UserInformation",
+                message2:data.remarks,
+                message3:data.text,
+                message4:data.sort
+                //message4:data.orNot
+               // oneMsg:data.remarks         //非必填
+            };
+      }  
       var modalInstance = $modal.open({
-        templateUrl: 'app/views/common/popup_inputTwoCol_twoLine_s.html',
+        templateUrl: 'app/views/common/popup_inputBox.html',
         controller: 'ModalInstanceCtrl',
-        size: size,
+        size:size,
         resolve:{
           msg:function(){
             return {
-              infoData:data
+              infoData:webData,
+              frontText:{"oneField":"脚本名称:","twoField":"菜单名称:","threeField":"菜单说明:","fourField":"排序",
+                         "selectField1":"是否删除:","selectField2":"是否菜单:"},
+                         // "oneChoose":"备注:"},
+              multiSelect:{
+                          "one":[{"option":"是"},{"option":"否"}],
+                          "two":[{"option":"是"},{"option":"否"}]
+
+              }   
             };
           }
         }
       });
   };
+  
 }]);
 
 
 /**
  * 
- * 字典管理
+ * 字典管理---------------------------------------------------------------------------------------------------
  * 
 */
-App.controller('LmDictionaryManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
-  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
+App.controller('LmDictionaryManageController', ['$scope', '$modal', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal, $http,ngDialog, editableOptions, editableThemes,Notify) {
   $scope.queryData={
       oneData:'字典类型：',
       twoData:'类型代码：'
@@ -2398,21 +2468,30 @@ App.controller('LmDictionaryManageController', ['$scope', '$modal','$filter', '$
   
   //查看--弹框 
   $scope.addBtn=function(data,size){
-      var webData={
-                message1:data.dicType,
-                message2:data.typeCode,
-                message3:data.remarks,
-                message4:data.sort
-            };
+    if(data==''){
+        var webData='';
+      }else{
+       var webData={
+              message1:data.dicType,
+              message2:data.typeCode,
+              message3:data.remarks,
+              message4:data.sort,
+              childMsg1:data.parentNode,
+              childMsg2:data.name,
+              childMsg3:data.code    
+        };
+      }      
       var modalInstance = $modal.open({
-        templateUrl: 'app/views/common/popup_inputTwoCol_twoLine.html',
+        templateUrl: 'app/views/common/popup_inputTwoRow.html',
         controller: 'ModalInstanceCtrl',
         size: size,
         resolve:{
           msg:function(){
             return {
               infoData:webData,
-              outText:{"firstT":"字典类型:","secondT":"类型代码:","fourthT":"排序:","thridT":"备注:"}
+              outText:{"firstT":"字典类型:","secondT":"类型代码:","fourthT":"排序:","thridT":"备注:",
+                       "childOne":"父节点","childTwo":"字典名称","childThree":"字典代码"
+                      }
             };
           }
         }
@@ -2441,15 +2520,19 @@ App.controller('LmDictionaryManageController', ['$scope', '$modal','$filter', '$
 
 /**
  * 
- * 系统参数设置
+ * 系统参数设置---------------------------------------------------------------------------------------------------
  * 
 */
 App.controller('LmParamSetController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
   function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
   $scope.queryData={
-      oneData:'字典类型：',
-      twoData:'类型代码：'
+      oneData:'参数编号：',
+      twoData:'参数名称：',
+      oneBtn:"新增",
+      twoBtn:'刷新缓存'
   }
+
+
   $scope.dataList = [];
   $scope.myData={list:[]};
   $http({
@@ -2457,37 +2540,47 @@ App.controller('LmParamSetController', ['$scope', '$modal','$filter', '$http','n
       url:'server/lmServer/lm_systemParamSet.json'
   }).then(function(res){
       $scope.dataList=res.data;
-      //console.log(res.data);
   },function(error){
       console.log('error');
   })
   
-  //查看--弹框 
+  //修改--弹框
   $scope.editBtn=function(data,size){
-      var modalInstance = $modal.open({
-        templateUrl: 'app/views/common/popup_inputBox_lg.html',
-        controller: 'ModalInstanceCtrl',
-        size: size,
-        resolve:{
-          msg:function(){
-            var webData={
+      if(data==''){
+        var webData='';
+      }else{
+        var webData={
                 message1:data.pramNum,
                 message2:data.pramName,
                 message3:data.pramValue,
-                message4:data.pramType
+                // message4:data.pramType,
+                oneMsg:data.remarks         //非必填
             };
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputBox.html',
+        controller: 'ModalInstanceCtrl',
+        size:size,
+        resolve:{
+          msg:function(){
             return {
               infoData:webData,
-              outText:{"firstT":"参数编号:","secondT":"参数名称:","fourthT":"参数值:","thridT":"参数类型:","thridT":"备注:"}
+              frontText:{"oneField":"参数编号:","twoField":"参数名称:","threeField":"参数值:",
+                         "selectField1":"参数类型:",
+                         "oneChoose":"备注:"},
+              multiSelect:{
+                            "one":[{"option":"协议参数"},{"option":"业务参数"},{"option":"系统关键参数"},{"option":"H5参数"},
+                                   {"option":"第三方"},{"option":"备注参数"},{"option":"短信参数"}]
+              }   
             };
           }
         }
       });
   };
 
- //禁用--弹框 
-  $scope.delete=function(){
-    $scope.data="确认";
+  //启用(禁用)---弹框 
+  $scope.forbiBtn=function(pram){
+    $scope.data=pram;
     ngDialog.openConfirm({      
         templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
         className: 'ngdialog-theme-default',
@@ -2507,16 +2600,17 @@ App.controller('LmParamSetController', ['$scope', '$modal','$filter', '$http','n
 
 
 
-
 /**
  * 
- * 任务列表
+ * 任务列表---------------------------------------------------------------------------------------------------
  * 
 */
 App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
-  $scope.themeData={
-    channelCode:'任务名:'
+ 
+  $scope.queryData={
+      oneData:'任务名:' 
   }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -2526,8 +2620,9 @@ App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','n
   },function(error){
       console.log('error');
   })
-  
-  $scope.forbiBtn=function(){
+  //启用(禁用)---弹框
+  $scope.forbiBtn=function(pram){
+    $scope.data=pram;
     ngDialog.openConfirm({      
         templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
         className: 'ngdialog-theme-default',
@@ -2542,26 +2637,40 @@ App.controller('LmTastListController', ['$scope', '$modal','$filter', '$http','n
           return;
     });
   }
-
-  $scope.editBtn = function (data) { 
-    var modalInstance = $modal.open({
-      templateUrl: 'app/views/common/popup_inputBox_lg.html',
-      controller: 'ModalInstanceCtrl',
-      resolve:{
-        msg:function(){
-          return data;
+  //编辑、新增--弹框
+  $scope.editBtn = function (data,size) { 
+    if(data==''){
+        var webData='';
+      }else{
+        var webData={
+                message1:data.taskName,
+                message2:data.taskDentifier,
+                message3:data.taskCycle,
+                message4:data.taskMethodName
+            };
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputBox.html',
+        controller: 'ModalInstanceCtrl',
+        size:size,
+        resolve:{
+          msg:function(){
+            return {
+              infoData:webData,
+              frontText:{"oneField":"任务名:","twoField":"任务标识:","threeField":"任务周期:", "fourField":"方法名:"}
+            };
+          }
         }
-      }
-    }); 
+      });
   };
 }]);
 
 /**
  * 
- *执行记录
+ *执行记录---------------------------------------------------------------------------------------------------
  * 
 */
-App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$http','editableOptions', 'editableThemes',function($scope, $modal, $filter, $http,editableOptions, editableThemes) {
+App.controller('LmExecuteRecordController', ['$scope','$http','editableOptions', 'editableThemes',function($scope, $http,editableOptions, editableThemes) {
 
   $scope.dataList = [];
   $http({
@@ -2579,7 +2688,7 @@ App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$htt
 
 /**
  * 
- * 渠道管理
+ * 渠道管理---------------------------------------------------------------------------------------------------
  * 
 */
 App.controller('LmChannelManageController', ['$scope', '$modal', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
@@ -2601,8 +2710,9 @@ App.controller('LmChannelManageController', ['$scope', '$modal', '$http','ngDial
   },function(error){
       console.log('error');
   })
-  
+  //启用(禁用)---弹框
   $scope.forbiBtn=function(pram){
+    $scope.data=pram;
     ngDialog.openConfirm({      
         templateUrl: 'app/views/common/dialogWithNestedConfirm.html',
         className: 'ngdialog-theme-default',
@@ -2618,8 +2728,7 @@ App.controller('LmChannelManageController', ['$scope', '$modal', '$http','ngDial
     });
   }
 
-
-   //编辑--弹框
+  //编辑、新增--弹框
   $scope.editBtn=function(data){
       if(data==''){
         var webData='';
