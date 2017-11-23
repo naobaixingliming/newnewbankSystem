@@ -706,6 +706,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_f_creditOrder.html'),
         resolve: helper.resolveFor('xeditable')
     })
+
     .state('app.payment-record', {
         url: '/payment-record',
         title: '支付记录',
@@ -725,7 +726,143 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         resolve: helper.resolveFor('xeditable')
     })
 
+    .state('app.repay-plan', {
+        url: '/repay-plan',
+        title: '还款计划',
+        templateUrl: helper.basepath('_p_repayPlan.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.repay-history', {
+        url: '/repay-history',
+        title: '还款记录',
+        templateUrl: helper.basepath('_p_repayHistory.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.withholdPay-record', {
+        url: '/withholdPay-record',
+        title: '代扣支付记录',
+        templateUrl: helper.basepath('_p_withholdPayRecords.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.alipayRepay-record', {
+        url: '/alipayRepay-record',
+        title: '支付宝还款记录',
+        templateUrl: helper.basepath('_p_alipayRepayRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.bankCardRepay-record', {
+        url: '/bankCardRepay-record',
+        title: '银行卡还款记录',
+        templateUrl: helper.basepath('_p_bankCardRepayRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.activeRepay-record', {
+        url: '/activeRepay-record',
+        title: '主动还款记录',
+        templateUrl: helper.basepath('_p_activeRepayRecord.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
 
+    .state('app.Repayment-orders', {
+        url: '/Repayment-orders',
+        title: '已还款订单',
+        templateUrl: helper.basepath('_o_repayOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.Overdue-orders', {
+        url: '/Overdue-orders',
+        title: '已逾期订单',
+        templateUrl: helper.basepath('_o_overdueOrders.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.Bad-orders', {
+        url: '/Bad-orders',
+        title: '已坏账订单',
+        templateUrl: helper.basepath('_o_badOrders.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.collector', {
+        url: '/collector',
+        title: '催收员',
+        templateUrl: helper.basepath('_l_collector.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.Order-collection', {
+        url: '/Order-collection',
+        title: '催收总订单',
+        templateUrl: helper.basepath('_n_orderAll-collection.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.Order-collected', {
+        url: '/Order-collected',
+        title: '待催收订单',
+        templateUrl: helper.basepath('_n_order-collected.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.Collection-feedback', {
+        url: '/Collection-feedback',
+        title: '催收反馈',
+        templateUrl: helper.basepath('_n_collection-feedback.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.my-Order', {
+        url: '/my-Order',
+        title: '我的订单',
+        templateUrl: helper.basepath('_m_myOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.order-collected', {
+        url: '/order-collected',
+        title: '待催收订单',
+        templateUrl: helper.basepath('_m_orderCollected.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.orderIn-collection', {
+        url: '/orderIn-collection',
+        title: '催收中订单',
+        templateUrl: helper.basepath('_m_orderInCollection.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.commitRepay-order', {
+        url: '/commitRepay-order',
+        title: '承诺还款订单',
+        templateUrl: helper.basepath('_m_commitRepayOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.successCollecte-order', {
+        url: '/successCollecte-order',
+        title: '催收成功订单',
+        templateUrl: helper.basepath('_m_successCollecteOrder.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.collecte-feedback', {
+        url: '/collecte-feedback',
+        title: '催收反馈',
+        templateUrl: helper.basepath('_m_collecteFeedback.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+
+    .state('app.overdue', {
+        url: '/overdue',
+        title: '已逾期未入催',
+        templateUrl: helper.basepath('_k_overdue.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.notRepayment-issued', {
+        url: '/notRepayment-issued',
+        title: '未还款已出催',
+        templateUrl: helper.basepath('_k_notRepaymentIssued.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
+    .state('app.unallocated-collector', {
+        url: '/unallocated-collector',
+        title: '未分配催收员',
+        templateUrl: helper.basepath('_k_unallocatedCollector.html'),
+        resolve: helper.resolveFor('xeditable')
+    })
 
     .state('app.recall-rateStatis', {
         url: '/recall-rateStatis',
@@ -745,7 +882,6 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         templateUrl: helper.basepath('_j_dailyStatisticsCollectors.html'),
         resolve: helper.resolveFor('xeditable')
     })
-
 
     .state('app.creditInfo-interface', {
         url: '/creditInfo-interface',

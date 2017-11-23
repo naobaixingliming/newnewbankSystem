@@ -1,10 +1,10 @@
-/**=========================================================
+/**===================
  * 
  * common controller
  * qureyController
  * 通用日历（有待优化）
  *
- =========================================================*/
+ ======================*/
 
 App.controller('queryController',['$scope',function($scope){
   $scope.today = function() {
@@ -16,7 +16,6 @@ App.controller('queryController',['$scope',function($scope){
   $scope.today();
 
   $scope.clear = function () {
-    //$scope.dt = null;
     $scope.dt1 = null;
     $scope.dt2 = null;
   };
@@ -53,6 +52,39 @@ App.controller('queryController',['$scope',function($scope){
 }])
 
 
+/**===================
+ * 
+ * common controller
+ * ModalInstanceCtrl
+ * 公用弹框--控制器
+ *
+ ======================*/
+App.controller('ModalInstanceCtrl',['$scope','$modalInstance','$timeout','msg','Notify',function($scope, $modalInstance,$timeout,msg,Notify){
+    $scope.data=msg;
+    //console.log(msg.infoData=="");
+    $scope.ok = function () {
+      if(false){
+          Notify.alert( 
+              '<i class="fa fa-warning font_32 color_fff mar-right-10 float_left"></i>数据不能为空', 
+              {status: 'warning',timeout :1500}
+          ); 
+          console.log('提交失败');   
+          return;  
+      }else{
+        $modalInstance.close('closed');
+        $timeout(function() {
+            Notify.alert( 
+                '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>提交成功', 
+                {status: 'info',timeout :1000}
+            );
+            console.log('提交成功');
+        }, 500);   
+      }
+    };
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+}]);
 
 /**=========================================================
  * 
@@ -1117,6 +1149,707 @@ App.controller('LmpaymentReconRecordController', ['$scope', '$http',function($sc
 }]);
 
 
+
+/**
+ * 
+ * 还款计划
+ * 
+*/    
+App.controller('LmRepayOrdersController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      calendar:'应还款时间:',
+      selectOne:{
+        text:'还款状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'已还款'},
+          {opt:'未还款'}         
+        ]
+      }   
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 还款记录
+ * 
+*/    
+App.controller('LmRepayHistoryController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      fourData:'流水号:',
+      fiveData:'还款账号:',
+      calendar:'实际操作时间:', 
+      selectOne:{
+        text:'是否金额减免:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'是'},
+          {opt:'不是'}         
+        ]
+      }      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 代扣支付记录
+ * 
+*/    
+App.controller('LmWithholdPayRecordsController', ['$scope', '$http',function($scope,$http) { 
+
+   $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      fourData:'流水号:',
+      fiveData:'还款账号:',
+      calendar:'扣款时间:', 
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'待支付'},
+          {opt:'支付成功'},
+          {opt:'支付失败'}         
+        ]
+      }      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 支付宝还款记录
+ * 
+*/    
+App.controller('LmAlipayRepayRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      fourData:'还款账号:',
+      calendar:'实际操作时间:'       
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 银行卡还款记录
+ * 
+*/    
+App.controller('LmBankCardRepayRecordController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      fourData:'还款账号:',
+      calendar:'实际操作时间:'       
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 主动还款记录
+ * 
+*/    
+App.controller('LmActiveRepayRecordController', ['$scope', '$http',function($scope,$http) { 
+
+   $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      calendar:'扣款时间:', 
+      selectOne:{
+        text:'状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'待支付'},
+          {opt:'支付成功'},
+          {opt:'支付失败'}         
+        ]
+      }      
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+
+/**
+ * 
+ * 已还款订单
+ * 
+*/    
+App.controller('LmRepayOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:'    
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 已逾期订单
+ * 
+*/    
+App.controller('LmOverdueOrdersController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:' ,
+      calendar:'订单生成时间:' 
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 已坏账订单
+ * 
+*/    
+App.controller('LmBadOrdersController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'手机号码:',
+      threeData:'订单号:',
+      calendar:'订单生成时间:'   
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 催收员
+ * 
+*/    
+App.controller('LmcollectorController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:',
+      twoData:'用户名:',
+      threeData:'工号:'    
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 催收总订单
+ * 
+*/
+App.controller('LmOrderAllCollnController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      calendar:'预计还款时间:',
+      selectOne:{
+        text:'催收状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'催收中'},
+          {opt:'承诺还款'},
+          {opt:'催收成功'},
+          {opt:'坏账'}       
+        ]
+      },
+      selectTwo:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      },
+      selectThree:{
+        text:'分配状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'已分配'},
+          {opt:'未分配'}    
+        ]
+      }    
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 待催收订单
+ * 
+*/
+App.controller('LmOrderCollectedController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人姓名:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 催收反馈
+ * 
+*/
+App.controller('LmCollectionFeedbackController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'真实姓名:', 
+      twoData:'手机号码:',
+      calendar:'预计还款时间:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 我的订单
+ * 
+*/
+App.controller('LmmyOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'催收状态:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'催收中'},
+          {opt:'承诺还款'},
+          {opt:'催收成功'},
+          {opt:'坏账'}       
+        ]
+      },
+      selectTwo:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 待催收订单
+ * 
+*/
+App.controller('LmorderCollectedController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+/**
+ * 
+ * 催收中订单
+ * 
+*/
+App.controller('LmorderInCollnController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 承诺还款订单
+ * 
+*/
+App.controller('LmcommitRepayOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+/**
+ * 
+ * 催收成功订单
+ * 
+*/
+App.controller('LmsuccessCollecteOrderController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 催收反馈
+ * 
+*/
+App.controller('LmcollecteFeedbackController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      threeData:'催收人：',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
+/**
+ * 
+ * 已逾期未入催
+ * 
+*/    
+App.controller('LmoverdueController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      threeData:'订单号:'    
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 未还款已出催
+ * 
+*/
+App.controller('LmnotRepaymentIssuedController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }  
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+/**
+ * 
+ * 未分配催收员
+ * 
+*/
+App.controller('LmunallocatedCollController', ['$scope', '$http',function($scope,$http) { 
+
+  $scope.queryData={
+      oneData:'借款人:', 
+      twoData:'手机号码:',
+      selectOne:{
+        text:'逾期等级:',
+        opinions:[
+          {opt:'全部'},
+          {opt:'M1'},
+          {opt:'M2'},
+          {opt:'M3'}         
+        ]
+      }     
+  }
+
+  $scope.dataList = [];
+  $http({
+      method: 'get',
+      url:'server/lmServer/lm_throughOrder.json'
+  }).then(function(res){
+      $scope.dataList=res.data;
+  },function(error){
+      console.log('error');
+  }) 
+}]);
+
+
 /**
  * 
  * 催回率统计
@@ -1849,14 +2582,16 @@ App.controller('LmExecuteRecordController', ['$scope', '$modal','$filter', '$htt
  * 渠道管理
  * 
 */
-App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
-  function($scope, $modal, $filter, $http,ngDialog, editableOptions, editableThemes,Notify) {
-  $scope.themeData={
-      channelCode:'渠道编码:',
-      contacts:'联系人姓名:',
-      channelName:'渠道名称:',
-      contactType:'联系方式:'
+App.controller('LmChannelManageController', ['$scope', '$modal', '$http','ngDialog', 'editableOptions', 'editableThemes','Notify',
+  function($scope, $modal,  $http,ngDialog, editableOptions, editableThemes,Notify) {
+
+  $scope.queryData={
+      oneData:'渠道编码:', 
+      twoData:'联系人姓名:',
+      threeData:'渠道名称:',
+      fourData:'联系方式:' 
   }
+
   $scope.dataList = [];
   $http({
       method: 'get',
@@ -1883,44 +2618,34 @@ App.controller('LmChannelManageController', ['$scope', '$modal','$filter', '$htt
     });
   }
 
-  $scope.editBtn = function (data) {   
-    var modalInstance = $modal.open({
-      templateUrl: 'app/views/common/popup_inputBox.html',
-      controller: 'ModalInstanceCtrl',
-      resolve:{
-        msg:function(){
-          return data;
+
+   //编辑--弹框
+  $scope.editBtn=function(data){
+      if(data==''){
+        var webData='';
+      }else{
+        var webData={
+                message1:data.channelCode,
+                message2:data.channelName,
+                message3:data.contacts,
+                message4:data.contactType
+            };
+      }  
+      var modalInstance = $modal.open({
+        templateUrl: 'app/views/common/popup_inputBox.html',
+        controller: 'ModalInstanceCtrl',
+        resolve:{
+          msg:function(){
+            return {
+              infoData:webData,
+              frontText:{"oneField":"渠道编码:","twoField":"渠道名称:","threeField":"联系人:", "fourField":"联系方式:"}
+            };
+          }
         }
-      }
-    });    
+      });
   };
 
+
 }]);
 
-//公用弹框--控制器
-App.controller('ModalInstanceCtrl',['$scope','$modalInstance','$timeout','msg','Notify',function($scope, $modalInstance,$timeout,msg,Notify){
-    $scope.data=msg;
-    //console.log(msg.infoData=="");
-    $scope.ok = function () {
-      if(false){
-          Notify.alert( 
-              '<i class="fa fa-warning font_32 color_fff mar-right-10 float_left"></i>数据不能为空', 
-              {status: 'warning',timeout :1500}
-          ); 
-          console.log('提交失败');   
-          return;  
-      }else{
-        $modalInstance.close('closed');
-        $timeout(function() {
-            Notify.alert( 
-                '<i class="fa fa-check-circle font_32 color_fff mar-right-10 float_left"></i>提交成功', 
-                {status: 'info',timeout :1000}
-            );
-            console.log('提交成功');
-        }, 500);   
-      }
-    };
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-    };
-}]);
+

@@ -1,7 +1,7 @@
 <h3>渠道管理</h3>
 <div ng-controller="LmChannelManageController" >
 
-   <div class="panel" ng-include="'app/views/common/query_inputFour.html'"></div>
+   <div class="panel" ng-include="'app/views/common/query.html'" ></div>
 
    <div class="panel panel-default" >
       <div class="inline_block">
@@ -54,9 +54,9 @@
                   </td>
                   <td style="white-space: nowrap">              
                      <div>
-                         <a href="javascript:;" class="lookList" ng-click="editBtn(data)">编辑</a>
+                         <a href="javascript:;"  ng-click="editBtn(data)">编辑</a>
                          <span class="ant-divider"></span>
-                         <a href="javascript:;" class="editList" ng-click="forbiBtn()">禁用</a>
+                         <a href="javascript:;"  ng-click="forbiBtn()">禁用</a>
                      </div>
                   </td>              
                </tr> 

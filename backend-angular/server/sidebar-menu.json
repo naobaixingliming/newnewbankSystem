@@ -147,27 +147,30 @@
     "submenu": [
       {
         "text": "还款计划",
-        "sref": "app.form-standard"
+        "sref": "app.repay-plan"
       },
       {
         "text": "还款记录",
-        "sref": "app.form-extended"
+        "sref": "app.repay-history"
       },
       {
         "text": "代扣支付记录",
-        "sref": "app.form-validation"
+        "sref": "app.withholdPay-record"
+      },
+      {
+        "text": "支付宝还款记录",
+        "sref": "app.alipayRepay-record"
       },
       {
         "text": "银行卡还款记录",
-        "sref": "app.form-parsley"
+        "sref": "app.bankCardRepay-record"
       },
       {
         "text": "主动还款记录",
-        "sref": "app.form-wizard"
+        "sref": "app.activeRepay-record"
       }    
     ],
-    "translate": "还款管理",
-     "alert": "无"
+    "translate": "还款管理"
   },
   { 
     "text": "贷后管理",
@@ -176,19 +179,19 @@
     "submenu": [
       {
         "text": "已还款订单",
-        "sref": "app.form-upload"
+        "sref": "app.Repayment-orders"
       },
       {
         "text": "已逾期订单",
-        "sref": "app.form-xeditable"
+        "sref": "app.Overdue-orders"
       },
       {
         "text": "已坏账订单",
-        "sref": "app.form-imagecrop"
+        "sref": "app.Bad-orders"
       }
     ],
     "translate": "贷后管理",
-    "alert": "无"
+    "alert": "new"
   },
   { 
     "text": "催收人员管理",
@@ -197,11 +200,10 @@
     "submenu": [
       {
         "text": "催收员",
-        "sref": "app.form-uiselect"
+        "sref": "app.collector"
       }
     ],
-    "translate": "催收人员管理",
-    "alert": "无"
+    "translate": "催收人员管理"
   },
   { 
     "text": "催收订单管理",
@@ -210,19 +212,18 @@
     "submenu": [
       {
         "text": "催收总订单",
-        "sref": "app.chart-flot"
+        "sref": "app.Order-collection"
       },
       {
         "text": "待催收订单",
-        "sref": "app.chart-radial"
+        "sref": "app.Order-collected"
       },
       {
         "text": "催收反馈",
-        "sref": "app.chart-js"
+        "sref": "app.Collection-feedback"
       }
     ],
-    "translate": "催收订单管理",
-    "alert": "无"
+    "translate": "催收订单管理"
   },
   { 
     "text": "我的催收订单",
@@ -231,31 +232,30 @@
     "submenu": [
       {
         "text": "我的订单",
-        "sref": "app.chart-rickshaw"
+        "sref": "app.my-Order"
       },
       {
         "text": "待催收订单",
-        "sref": "app.chart-morris"
+        "sref": "app.order-collected"
       },
       {
         "text": "催收中订单",
-        "sref": "app.chart-chartist"
+        "sref": "app.orderIn-collection"
       },
       {
         "text": "承诺还款订单",
-        "sref": "app.table-standard"
+        "sref": "app.commitRepay-order"
       },
       {
         "text": "催收成功订单",
-        "sref": "app.table-extended"
+        "sref": "app.successCollecte-order"
       },
       {
         "text": "催收反馈",
-        "sref": "app.table-datatable"
+        "sref": "app.collecte-feedback"
       }
     ],
-    "translate": "我的催收订单",
-    "alert": "无"
+    "translate": "我的催收订单"
   },
   { 
     "text": "催收预警",
@@ -264,19 +264,18 @@
     "submenu": [
       {
         "text": "已逾期未入催",
-        "sref": "app.table-ngtable"
+        "sref": "app.overdue"
       },
       {
         "text": "未还款已出催",
-        "sref": "app.table-nggrid"
+        "sref": "app.notRepayment-issued"
       },
       {
         "text": "未分配催收员",
-        "sref": "app.table-uigrid"
+        "sref": "app.unallocated-collector"
       }
     ],
-    "translate": "催收预警",
-    "alert": "无"
+    "translate": "催收预警"
   },
   { 
     "text": "催收统计",
